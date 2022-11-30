@@ -51,6 +51,27 @@ const service = {
       .catch(errorHandler);
   },
 
+  getAllEvents() {
+    return service
+      .get("/events")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  getOneEvent() {
+    return service
+      .get("/events/:id")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  getUserProfile() {
+    return service
+      .get("/auth/me")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
   // getAllTheCats() {
   // 	return service
   // 		.get("/api/cats")

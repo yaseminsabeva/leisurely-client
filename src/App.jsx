@@ -6,6 +6,8 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import PrivateRoute from "./components/ProtectedRoute/PrivateRoute";
 import LoggedOut from "./components/LoggedOut/LoggedOut";
+import ListEvents from "./pages/ListEvents";
+import OneEvent from "./pages/OneEvent";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <NavMain />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/events" element={<ListEvents />} />
+        <Route path="/events/:id" element={<OneEvent />} />
 
         <Route element={<LoggedOut />}>
           <Route path="/signin" element={<Signin />} />
