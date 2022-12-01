@@ -1,14 +1,18 @@
 import useForm from "../../hooks/useForm"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import apiHandler from "../../api/apiHandler"
+import service from "../../api/apiHandler"
+import useAuth from "../../auth/useAuth"
 
-const EditProfile = ({user}) => {
+const EditProfile = ({user, setShowEdit}) => {
+    const {authenticateUser} = useAuth()
     const id = user._id
-    console.log(id);
-	const [values, handleChange] = useForm({ name: "",username: "", email: "", password: "", description: "", picture: {}  })
+	const [values, handleChange] = useForm({ name: user.name,username: user.username, email: user.email, password: "", description: user.description, picture: {}  })
 	const [error, setError] = useState(null)
 	const navigate = useNavigate()
+
+
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
@@ -20,20 +24,33 @@ const EditProfile = ({user}) => {
 		// fd.append('name', values.name)
 	
 
-		apiHandler
-			.editUserProfile(fd)
-			.then(() => {
-				navigate("/profile")
+		 apiHandler
+		 	.editUserProfile(fd)
+			.then(async (res) => {
+                console.log(res)
+				setShowEdit(false)
+                await authenticateUser()
 			})
 			.catch((error) => {
 				setError(error.response.data)
 			})
 	}
+    const handleDelete = (e) => {
+        service
+		 	.deleteUserProfile()
+             .then(() => {
+				navigate("/")
+			})
+			.catch((error) => {
+				setError(error.response.data)
+			})
+    }
 	return (
 		<>
 			{error && <h3 className="error">{error.message}</h3>}
-			<form onSubmit={handleSubmit} >
-				<h2>Signup</h2>
+			<div className="edit form">
+                <form onSubmit={handleSubmit} >
+				<h2>Edit your profile</h2>
 				<label htmlFor="name">Name</label>
 				<input
 					onChange={handleChange}
@@ -84,7 +101,11 @@ const EditProfile = ({user}) => {
 					//value={picture.name || ""}
 				/>
 				<button>Submit</button>
-			</form>
+			    </form>
+            </div>
+            <div className="delete form">
+                <button onClick={handleDelete}>Delete my profil</button>
+            </div>
 		</>
 		
 	)
