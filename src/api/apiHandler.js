@@ -71,6 +71,12 @@ const service = {
       .then((res) => res.data)
       .catch(errorHandler);
   },
+  addEventForm(eventInfo) {
+    return service
+      .post("/events/add", eventInfo)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
 
   // getAllTheCats() {
   // 	return service
