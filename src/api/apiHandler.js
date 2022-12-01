@@ -74,7 +74,14 @@ const service = {
 
   editUserProfile(userInfo) {
     return service
-      .patch("/auth/profile", userInfo)
+      .patch("/auth/me", userInfo)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  deleteUserProfile(userInfo) {
+    return service
+      .delete("/auth/me", userInfo)
       .then((res) => res.data)
       .catch(errorHandler);
   },
