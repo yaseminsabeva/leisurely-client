@@ -3,6 +3,7 @@ import useForm from "../../hooks/useForm"
 import apiHandler from "../../api/apiHandler"
 import useAuth from "../../auth/useAuth"
 import { useNavigate } from "react-router-dom"
+import axios from 'axios'
 
 const FormSignIn = () => {
 	const [{ email, password }, handleChange] = useForm({
@@ -21,7 +22,7 @@ const FormSignIn = () => {
 				console.log(res)
 				storeToken(res.authToken)
 				authenticateUser()
-				navigate("/")
+				navigate("/profile")
 			})
 			.catch((e) => {
 				setError(e.response.data)

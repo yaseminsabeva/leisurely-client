@@ -3,7 +3,9 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import apiHandler from "../../api/apiHandler"
 
-const FormSignUp = () => {
+const EditProfile = ({user}) => {
+    const id = user._id
+    console.log(id);
 	const [values, handleChange] = useForm({ name: "",username: "", email: "", password: "", description: "", picture: {}  })
 	const [error, setError] = useState(null)
 	const navigate = useNavigate()
@@ -19,9 +21,9 @@ const FormSignUp = () => {
 	
 
 		apiHandler
-			.signup(fd)
+			.editUserProfile(fd)
 			.then(() => {
-				navigate("/signin")
+				navigate("/profile")
 			})
 			.catch((error) => {
 				setError(error.response.data)
@@ -88,4 +90,4 @@ const FormSignUp = () => {
 	)
 }
 
-export default FormSignUp
+export default EditProfile
