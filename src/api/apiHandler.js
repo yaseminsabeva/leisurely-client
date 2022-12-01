@@ -85,6 +85,12 @@ const service = {
       .then((res) => res.data)
       .catch(errorHandler);
   },
+  editEventForm(eventInfo) {
+    return service
+      .patch(`/events/${eventInfo._id}/edit`, eventInfo)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
 
   // getAllTheCats() {
   // 	return service
