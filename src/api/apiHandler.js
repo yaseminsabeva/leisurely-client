@@ -92,6 +92,13 @@ const service = {
       .catch(errorHandler);
   },
 
+  deleteEvent(eventInfo) {
+    return service
+      .delete(`/events`, eventInfo)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
   // getAllTheCats() {
   // 	return service
   // 		.get("/api/cats")

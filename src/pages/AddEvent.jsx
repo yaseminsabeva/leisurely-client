@@ -133,7 +133,7 @@ function AddEvent() {
           onChange={handleChange}
         />
 
-        <button>Add Event</button>
+        <button>Add Event 🎉</button>
       </form>
     </div>
   );

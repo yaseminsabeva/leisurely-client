@@ -155,7 +155,7 @@ function EditEvent() {
           onChange={handleChange}
         />
 
-        <button>Add Event</button>
+        <button>Edit</button>
       </form>
     </div>
   );
