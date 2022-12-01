@@ -5,7 +5,10 @@ const useForm = (initialValues) => {
 	const handleChange = (e) => {
 		setValues({
 			...values,
-			[e.target.name]: e.target.value,
+			[e.target.name]:
+					e.target.type === "file"
+						? e.target?.files?.[0]
+						: e.target.value,
 		})
 	}
 	const reset = () => {

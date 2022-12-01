@@ -71,6 +71,14 @@ const service = {
       .then((res) => res.data)
       .catch(errorHandler);
   },
+
+  editUserProfile(userInfo) {
+    return service
+      .patch("/auth/profile", userInfo)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
   addEventForm(eventInfo) {
     return service
       .post("/events/add", eventInfo)
