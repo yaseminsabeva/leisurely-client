@@ -8,6 +8,7 @@ import PrivateRoute from "./components/ProtectedRoute/PrivateRoute";
 import LoggedOut from "./components/LoggedOut/LoggedOut";
 import ListEvents from "./pages/ListEvents";
 import OneEvent from "./pages/OneEvent";
+import AddEventForm from "./pages/AddEventForm";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<ListEvents />} />
+        <Route path="/events/add" element={<AddEventForm />} />
         <Route path="/events/:id" element={<OneEvent />} />
 
         <Route element={<LoggedOut />}>
