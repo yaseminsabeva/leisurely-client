@@ -1,12 +1,11 @@
 import useForm from "../../hooks/useForm"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import apiHandler from "../../api/apiHandler"
 import service from "../../api/apiHandler"
 import useAuth from "../../auth/useAuth"
 
 const EditProfile = ({user, setShowEdit}) => {
-    const {authenticateUser} = useAuth()
+    const {authenticateUser, removeUser} = useAuth()
     const id = user._id
 	const [values, handleChange] = useForm({ name: user.name,username: user.username, email: user.email, password: "", description: user.description, picture: {}  })
 	const [error, setError] = useState(null)
@@ -24,7 +23,7 @@ const EditProfile = ({user, setShowEdit}) => {
 		// fd.append('name', values.name)
 	
 
-		 apiHandler
+		 service
 		 	.editUserProfile(fd)
 			.then(async (res) => {
                 console.log(res)
@@ -39,6 +38,7 @@ const EditProfile = ({user, setShowEdit}) => {
         service
 		 	.deleteUserProfile()
              .then(() => {
+				removeUser()
 				navigate("/")
 			})
 			.catch((error) => {
