@@ -10,6 +10,7 @@ import ListEvents from "./pages/ListEvents";
 import OneEvent from "./pages/OneEvent";
 import AddEvent from "./pages/AddEvent";
 import EditEvent from "./pages/EditEvent";
+import Users from "./pages/Users"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/events/add" element={<AddEvent />} />
         <Route path="/events/:id/edit" element={<EditEvent />} />
         <Route path="/events/:id" element={<OneEvent />} />
+        <Route path="/users/:id" element={<Users />} />
 
         <Route element={<LoggedOut />}>
           <Route path="/signin" element={<Signin />} />

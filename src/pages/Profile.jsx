@@ -8,14 +8,7 @@ import useAuth from "../auth/useAuth"
 function Profile() {
   const {currentUser} = useAuth()
   const user = currentUser
-    // const [user, setUser] = useState(null)
     const [showEdit, setShowEdit] = useState(false);
-
-    // useEffect(() => {
-    //     service.getUserProfile().then((data) => {
-    //         setUser(data)
-    //     })
-    // }, [])
     if (!user) {
         return <div className="loading">Loading....</div>
     }

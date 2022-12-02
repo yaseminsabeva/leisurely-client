@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import service from "../api/apiHandler";
-import useAuth from "./../auth/useAuth";
+import useAuth from "../auth/useAuth";
 import "./../styles/OneEvent.css";
-import apiHandler from "../api/apiHandler";
+// jeanne //
+
+import EventSubscribe from "../components/Events/EventSubscribe";
+// jeanne //
 
 function OneEvent() {
   const [event, setEvent] = useState(null);
   const [error, setError] = useState(null);
   const { id } = useParams();
-  const { isLoggedIn, currentUser, removeUser } = useAuth();
+  const { isLoggedIn, currentUser } = useAuth();
   const navigate = useNavigate();
 
-  useEffect(() => {
+  // jeanne //
+  const fetchEvent = () => {
     service
       .get(`/events/${id}`)
       .then((response) => {
@@ -21,7 +25,11 @@ function OneEvent() {
       .catch((err) => {
         console.error(err.message);
       });
+  }
+  useEffect(() => {
+    fetchEvent()
   }, []);
+// jeanne //
 
   const [deleteForm, setDeleteForm] = useState(false);
 
@@ -36,11 +44,28 @@ function OneEvent() {
       });
   }
 
-  if (!event) return <div className="loading">Loading...</div>;
+  if (!event || !currentUser) return <div className="loading">Loading...</div>;
   return (
-    <div>
-      <h1>{event.title}</h1>
-      <p>{event.host.username}</p>
+    <div className="">
+      <div className=" event infos">
+        <h1>{event.title}</h1>
+        <p>{event.host.username}</p>
+        <p>{event.host.email}</p>
+      </div>
+      <div className="attendees infos">
+        {event.attendees.map((element)=>{ 
+            return (
+              (element._id === currentUser._id ? '' :
+              <Link to={`/users/${element._id}`} key={element._id}>{element.name}</Link>)
+            )
+          })}
+      </div>
+      <div className="subscribe">
+        {console.log(event.attendees)}
+        {event.attendees.find(e => e._id === currentUser._id)? 'shruti est moche' : 'shruti est belle'}
+      </div>
+      {/* <EventSubscribe fetchEvent={fetchEvent} event={event}/> */}
+   
       <img src={event.image} alt={event.title} />
       {isLoggedIn && currentUser.username === event.host.username ? (
         <div>
