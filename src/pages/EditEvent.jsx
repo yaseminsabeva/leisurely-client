@@ -3,12 +3,16 @@ import useForm from "../hooks/useForm";
 import apiHandler from "../api/apiHandler";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import useAuth from "../auth/useAuth";
 
 function EditEvent() {
+  const { currentUser, isLoggedIn } = useAuth();
+
   const navigate = useNavigate();
   const [error, setError] = useState(null);
   const [event, setEvent] = useState(null);
   const { id } = useParams();
+
   useEffect(() => {
     apiHandler
       .getOneEvent(id)
@@ -21,24 +25,7 @@ function EditEvent() {
         console.error(err.message);
       });
   }, []);
-  console.log(event);
-
-  const [
-    {
-      _id,
-      title,
-      category,
-      description,
-      keywords,
-      dateOfEvent,
-      time,
-      location,
-      price,
-    },
-    handleChange,
-    resetEditForm,
-    setEditForm,
-  ] = useForm({
+  const [values, handleChange, resetEditForm, setEditForm] = useForm({
     title: "",
     category: "",
     description: "",
@@ -47,21 +34,41 @@ function EditEvent() {
     time: "",
     location: "",
     price: 0,
+    image: null,
   });
+  const {
+    _id,
+    title,
+    category,
+    description,
+    keywords,
+    dateOfEvent,
+    time,
+    location,
+    price,
+    image,
+  } = values;
   function handleSubmit(e) {
     e.preventDefault();
+    const fdValues = {
+      title,
+      category,
+      description,
+      keywords,
+      dateOfEvent,
+      time,
+      location,
+      price,
+      image,
+    };
+
+    const fd = new FormData();
+    for (const [key, value] of Object.entries(fdValues)) {
+      fd.append(key, value);
+    }
+    fd._id = _id;
     apiHandler
-      .editEventForm({
-        _id,
-        title,
-        category,
-        description,
-        keywords,
-        dateOfEvent,
-        time,
-        location,
-        price,
-      })
+      .editEventForm(fd)
       .then(({ _id }) => {
         navigate(`/events/${_id}`);
       })
@@ -71,9 +78,10 @@ function EditEvent() {
   }
   return (
     <>
-      {title && (
+      {isLoggedIn &&
+      event.host &&
+      currentUser.username === event.host.username ? (
         <div>
-          {" "}
           <form onSubmit={handleSubmit}>
             <label htmlFor="title">Title: </label>
             <input
@@ -156,10 +164,21 @@ function EditEvent() {
               value={price}
               onChange={handleChange}
             />
+            <label htmlFor="image">Image:</label>
+
+            <input
+              onChange={handleChange}
+              type="file"
+              id="image"
+              name="image"
+              //value={image ? `C:\\fakepath\\${image.name}` : ""}
+            />
 
             <button>Edit</button>
           </form>
         </div>
+      ) : (
+        <p>You are not authorised</p>
       )}
     </>
   );

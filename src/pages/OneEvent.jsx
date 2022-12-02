@@ -16,7 +16,6 @@ function OneEvent() {
     service
       .get(`/events/${id}`)
       .then((response) => {
-        console.log(response.data);
         setEvent(response.data);
       })
       .catch((err) => {

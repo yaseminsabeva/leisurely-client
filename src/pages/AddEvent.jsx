@@ -7,40 +7,38 @@ import { useState } from "react";
 function AddEvent() {
   const navigate = useNavigate();
   const [error, setError] = useState(null);
-  const [
-    {
-      title,
-      category,
-      description,
-      keywords,
-      dateOfEvent,
-      time,
-      location,
-      price,
-    },
-    handleChange,
-  ] = useForm({
+  const [event, handleChange] = useForm({
     title: "",
+    description: "",
     category: "",
     keywords: "",
     dateOfEvent: "",
     time: "",
     location: "",
     price: 0,
+    image: null,
   });
+
+  const {
+    title,
+    category,
+    description,
+    keywords,
+    dateOfEvent,
+    time,
+    location,
+    price,
+    image,
+  } = event;
+
   function handleSubmit(e) {
     e.preventDefault();
+    const fd = new FormData();
+    for (const [key, value] of Object.entries(event)) {
+      fd.append(key, value);
+    }
     apiHandler
-      .addEventForm({
-        title,
-        category,
-        description,
-        keywords,
-        dateOfEvent,
-        time,
-        location,
-        price,
-      })
+      .addEventForm(fd)
       .then(({ event: { _id } }) => {
         navigate(`/events/${_id}`);
       })
@@ -131,6 +129,15 @@ function AddEvent() {
           name="price"
           value={price}
           onChange={handleChange}
+        />
+        <label htmlFor="image">Image:</label>
+
+        <input
+          onChange={handleChange}
+          type="file"
+          id="image"
+          name="image"
+          value={image ? `C:\\fakepath\\${image.name}` : ""}
         />
 
         <button>Add Event 🎉</button>
