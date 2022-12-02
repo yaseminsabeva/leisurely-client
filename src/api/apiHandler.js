@@ -58,9 +58,9 @@ const service = {
       .catch(errorHandler);
   },
 
-  getOneEvent() {
+  getOneEvent(eventId) {
     return service
-      .get("/events/:id")
+      .get(`/events/${eventId}`)
       .then((res) => res.data)
       .catch(errorHandler);
   },
@@ -88,20 +88,20 @@ const service = {
 
   addEventForm(eventInfo) {
     return service
-      .post("/events/add", eventInfo)
+      .post("/events", eventInfo)
       .then((res) => res.data)
       .catch(errorHandler);
   },
   editEventForm(eventInfo) {
     return service
-      .patch(`/events/${eventInfo._id}/edit`, eventInfo)
+      .patch(`/events/${eventInfo._id}`, eventInfo)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
-  deleteEvent(eventInfo) {
+  deleteEvent(eventId) {
     return service
-      .delete(`/events`, eventInfo)
+      .delete(`/events/${eventId}`)
       .then((res) => res.data)
       .catch(errorHandler);
   },
