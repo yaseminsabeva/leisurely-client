@@ -92,9 +92,10 @@ const service = {
       .then((res) => res.data)
       .catch(errorHandler);
   },
+
   editEventForm(eventInfo) {
     return service
-      .patch(`/events/${eventInfo._id}`, eventInfo)
+      .patch(`/events/${eventInfo._id}`)
       .then((res) => res.data)
       .catch(errorHandler);
   },
@@ -106,6 +107,19 @@ const service = {
       .catch(errorHandler);
   },
 
+  eventSubscribe(eventId) {
+    return service
+      .patch(`/events/${eventId}/subscribe`, eventId)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  getAttendeeProfil(attendeeInfo) {
+    return service
+      .get(`/users/${attendeeInfo}`)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
   // getAllTheCats() {
   // 	return service
   // 		.get("/api/cats")
