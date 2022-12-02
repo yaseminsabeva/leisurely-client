@@ -7,6 +7,7 @@ import apiHandler from "../api/apiHandler";
 
 function OneEvent() {
   const [event, setEvent] = useState(null);
+  const [error, setError] = useState(null);
   const { id } = useParams();
   const { isLoggedIn, currentUser, removeUser } = useAuth();
   const navigate = useNavigate();
@@ -26,7 +27,14 @@ function OneEvent() {
   const [deleteForm, setDeleteForm] = useState(false);
 
   function handleDelete() {
-    apiHandler.deleteEvent();
+    service
+      .deleteEvent(event._id)
+      .then(() => {
+        navigate("/events");
+      })
+      .catch((error) => {
+        setError(error);
+      });
   }
 
   if (!event) return <div className="loading">Loading...</div>;
