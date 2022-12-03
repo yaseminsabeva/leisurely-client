@@ -77,6 +77,7 @@ function EditEvent() {
       });
   }
 
+
   if (!event) {
     return <p>Loading...</p>;
   }
