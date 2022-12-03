@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import service from "../api/apiHandler";
 import { Link } from "react-router-dom";
+import EventCardSmall from "../components/Events/EventCardSmall";
+
 function ListEvents() {
   const [events, setEvents] = useState([]);
   useEffect(() => {
@@ -13,13 +15,9 @@ function ListEvents() {
   }
   return (
     <ul>
-      <h1>List</h1>
-      {events.map((element) => {
-        return (
-          <li key={element._id}>
-            <Link to={`${element._id}`}>{element.title}</Link>
-          </li>
-        );
+      <h1>Upcoming Events</h1>
+      {events.map((event) => {
+        return <EventCardSmall key={event._id} event={event} />;
       })}
     </ul>
   );

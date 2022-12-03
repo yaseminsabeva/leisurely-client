@@ -1,0 +1,51 @@
+.event-card {
+  display: flex;
+  flex-direction: row;
+  height: 300px;
+  width: 70vw;
+}
+
+picture {
+  height: 100%;
+  width: 40%;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.event-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 2rem;
+}
+
+.event-info {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  margin-top: auto;
+  margin-bottom: 0.8rem;
+  justify-content: space-around;
+}
+
+.event-info i {
+  margin-right: 0.4rem;
+  color: var(--green);
+}
+
+.keywords {
+  color: #898989;
+  font-style: italic;
+}
+
+.event-info div {
+  color: #898989;
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--brownish);
+}
