@@ -76,7 +76,12 @@ function EditEvent() {
         setError(error.response);
       });
   }
-  if (!event) return <div className="loading">Loading...</div>;
+
+
+  if (!event) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <>
       {isLoggedIn &&
