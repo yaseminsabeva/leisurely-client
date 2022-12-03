@@ -25,11 +25,11 @@ function OneEvent() {
       .catch((err) => {
         console.error(err.message);
       });
-  }
+  };
   useEffect(() => {
-    fetchEvent()
+    fetchEvent();
   }, []);
-// jeanne //
+  // jeanne //
 
   const [deleteForm, setDeleteForm] = useState(false);
 
@@ -53,11 +53,13 @@ function OneEvent() {
         <h1>{event.title}</h1>
         <p>Username : {event.host.username}</p>
         <p>Email : {event.host.email}</p>
-        <p>Price : {event.price === 0? 'Free' : event.price}</p>
-        <p>Number of place {(event.maxAttendees - event.attendees.length)}</p>
+        <p>Price : {event.price === 0 ? "Free" : event.price}</p>
+        <p>Number of place {event.maxAttendees - event.attendees.length}</p>
       </div>
+
       <Attendees fetchEvent={fetchEvent} currentUser={currentUser} isLoggedIn={isLoggedIn} event={event}/>
       {/* //jeanne// */} 
+
       <img src={event.image} alt={event.title} />
       {isLoggedIn && currentUser.username === event.host.username ? (
         <div>
