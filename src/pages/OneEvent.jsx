@@ -79,7 +79,7 @@ function OneEvent() {
       </div>
       {/* //jeanne// */}
       <img src={event.image} alt={event.title} />
-      {currentUser.username === event.host.username ? (
+      {isLoggedIn && currentUser.username === event.host.username ? (
         <div>
           <Link to={`/events/${event._id}/edit`}>Edit</Link>{" "}
           <div onClick={() => setDeleteForm(true)}>Delete</div>
