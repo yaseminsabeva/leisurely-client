@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import service from "../api/apiHandler";
 import useAuth from "../auth/useAuth";
+import Attendees from "../components/Attendees/Attendees";
 import "./../styles/OneEvent.css";
 // jeanne //
-
-import EventSubscribe from "../components/Events/EventSubscribe";
+// import EventSubscribe from "../components/Events/EventSubscribe";
 // jeanne //
 
 function OneEvent() {
@@ -56,19 +56,7 @@ function OneEvent() {
         <p>Price : {event.price === 0? 'Free' : event.price}</p>
         <p>Number of place {(event.maxAttendees - event.attendees.length)}</p>
       </div>
-      <div className="attendees infos">
-        <p>Attendees for this event :</p>
-        {event.attendees.map((element)=>{ 
-            return (
-              (isLoggedIn && currentUser.username === element.username ? 'You' :
-              <Link to={`/users/${element._id}`} key={element._id}>{element.name}</Link>)
-              )
-          })}
-      </div>
-      <div className="subscribe">
-        {!isLoggedIn || currentUser._id === event.host._id || event.attendees.find((e)=>e._id === currentUser._id)? 
-        '' : <EventSubscribe fetchEvent={fetchEvent} event={event}/>}
-      </div>
+      <Attendees fetchEvent={fetchEvent} currentUser={currentUser} isLoggedIn={isLoggedIn} event={event}/>
       {/* //jeanne// */} 
       <img src={event.image} alt={event.title} />
       {isLoggedIn && currentUser.username === event.host.username ? (
