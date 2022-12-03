@@ -77,16 +77,13 @@ function EditEvent() {
       });
   }
 
-
   if (!event) {
     return <p>Loading...</p>;
   }
 
   return (
     <>
-      {isLoggedIn &&
-      event.host &&
-      currentUser.username === event.host.username ? (
+      {isLoggedIn && currentUser.username === event.host.username ? (
         <div>
           <form onSubmit={handleSubmit}>
             <label htmlFor="title">Title: </label>
@@ -104,6 +101,9 @@ function EditEvent() {
               value={category}
               onChange={handleChange}
             >
+              <option value="" disabled>
+                Select category
+              </option>
               <option value="Art & Culture">Art & Culture</option>
               <option value="Community & Environment">
                 Community & Environment
@@ -162,11 +162,12 @@ function EditEvent() {
               value={location}
               onChange={handleChange}
             />
-            <label htmlFor="price">Price: € </label>
+            <label htmlFor="price">Price: </label>
             <input
               type="number"
               id="price"
               name="price"
+              min="0"
               value={price}
               onChange={handleChange}
             />
