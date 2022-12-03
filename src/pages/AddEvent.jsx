@@ -131,7 +131,6 @@ function AddEvent() {
           onChange={handleChange}
         />
         <label htmlFor="image">Image:</label>
-
         <input
           onChange={handleChange}
           type="file"

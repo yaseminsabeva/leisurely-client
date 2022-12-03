@@ -49,14 +49,18 @@ function OneEvent() {
   return (
     <div className="">
       <div className=" event infos">
+        {/* //jeanne// */}
         <h1>{event.title}</h1>
-        <p>{event.host.username}</p>
-        <p>{event.host.email}</p>
+        <p>Username : {event.host.username}</p>
+        <p>Email : {event.host.email}</p>
+        <p>Price : {event.price === 0 ? "Free" : event.price}</p>
+        <p>Number of place {event.maxAttendees - event.attendees.length}</p>
       </div>
       <div className="attendees infos">
+        <p>Attendees for this event :</p>
         {event.attendees.map((element) => {
-          return currentUser.username === element.username ? (
-            ""
+          return isLoggedIn && currentUser.username === element.username ? (
+            "You"
           ) : (
             <Link to={`/users/${element._id}`} key={element._id}>
               {element.name}
@@ -65,14 +69,15 @@ function OneEvent() {
         })}
       </div>
       <div className="subscribe">
-        {event.attendees.find((e) => e._id === currentUser._id) ? (
-          <EventSubscribe fetchEvent={fetchEvent} event={event} />
+        {!isLoggedIn ||
+        (isLoggedIn &&
+          event.attendees.find((e) => e._id === currentUser._id)) ? (
+          ""
         ) : (
-          "shruti est belle"
+          <EventSubscribe fetchEvent={fetchEvent} event={event} />
         )}
       </div>
-      {/* <EventSubscribe fetchEvent={fetchEvent} event={event}/> */}
-
+      {/* //jeanne// */}
       <img src={event.image} alt={event.title} />
       {currentUser.username === event.host.username ? (
         <div>
