@@ -8,13 +8,13 @@ import useAuth from "../auth/useAuth"
 function Profile() {
   const {currentUser} = useAuth()
   const user = currentUser
-    const [showEdit, setShowEdit] = useState(false);
+  const [showEdit, setShowEdit] = useState(false);
     if (!user) {
         return <div className="loading">Loading....</div>
     }
   return (
     <div className="">
-      <h1>hello {user.username}</h1>
+      <h1>Welcome {user.username}</h1>
         <button onClick={() => setShowEdit(!showEdit)}>
             {showEdit ? 'back' : 'Edit form'}
         </button>       
