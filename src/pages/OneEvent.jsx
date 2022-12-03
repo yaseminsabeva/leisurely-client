@@ -66,7 +66,7 @@ function OneEvent() {
           })}
       </div>
       <div className="subscribe">
-        {!isLoggedIn || isLoggedIn && event.attendees.find(e => e._id === currentUser._id)? 
+        {!isLoggedIn || currentUser._id === event.host._id || event.attendees.find((e)=>e._id === currentUser._id)? 
         '' : <EventSubscribe fetchEvent={fetchEvent} event={event}/>}
       </div>
       {/* //jeanne// */} 
