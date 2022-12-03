@@ -44,7 +44,8 @@ function OneEvent() {
       });
   }
 
-  if (!event || !currentUser) return <div className="loading">Loading...</div>;
+  if (!event) return <div className="loading">Loading...</div>;
+
   return (
     <div className="">
       <div className=" event infos">
@@ -55,14 +56,14 @@ function OneEvent() {
       <div className="attendees infos">
         {event.attendees.map((element)=>{ 
             return (
-              (element._id === currentUser._id ? '' :
+              (isLoggedIn && currentUser.username === element.username ? '' :
               <Link to={`/users/${element._id}`} key={element._id}>{element.name}</Link>)
-            )
+              )
           })}
       </div>
       <div className="subscribe">
-        {console.log(event.attendees)}
-        {event.attendees.find(e => e._id === currentUser._id)? 'shruti est moche' : 'shruti est belle'}
+        {isLoggedIn && event.attendees.find(e => e._id === currentUser._id)? 
+        <EventSubscribe fetchEvent={fetchEvent} event={event}/> : 'shruti est belle'}
       </div>
       {/* <EventSubscribe fetchEvent={fetchEvent} event={event}/> */}
    
