@@ -10,7 +10,7 @@ import ListEvents from "./pages/ListEvents";
 import OneEvent from "./pages/OneEvent";
 import AddEvent from "./pages/AddEvent";
 import EditEvent from "./pages/EditEvent";
-import Users from "./pages/Users"
+import Users from "./pages/Users";
 
 function App() {
   return (
@@ -19,8 +19,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<ListEvents />} />
-        <Route path="/events/add" element={<AddEvent />} />
-        <Route path="/events/:id/edit" element={<EditEvent />} />
         <Route path="/events/:id" element={<OneEvent />} />
         <Route path="/users/:id" element={<Users />} />
 
@@ -31,6 +29,8 @@ function App() {
         <Route element={<PrivateRoute />}>
           {/* All routes after the PrivateRoute require the user to be loggedIn */}
           <Route path="/profile" element={<Profile />} />
+          <Route path="/events/add" element={<AddEvent />} />
+          <Route path="/events/:id/edit" element={<EditEvent />} />
         </Route>
         <Route path="*" element={<p>not found</p>} />
       </Routes>

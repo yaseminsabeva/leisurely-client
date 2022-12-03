@@ -83,9 +83,7 @@ function EditEvent() {
 
   return (
     <>
-      {isLoggedIn &&
-      event.host &&
-      currentUser.username === event.host.username ? (
+      {isLoggedIn && currentUser.username === event.host.username ? (
         <div>
           <form onSubmit={handleSubmit}>
             <label htmlFor="title">Title: </label>
