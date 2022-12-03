@@ -1,0 +1,22 @@
+.btn-edit {
+    position: absolute;
+    right: 30px;
+    top: 100px;
+}
+
+.user, .event {
+    display: flex;
+    background-color: lightgrey;
+    padding: 30px;
+}
+
+.user picture, .event picture {
+    width: 20%;
+}
+
+.user .infos, .event .infos {
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+}
+

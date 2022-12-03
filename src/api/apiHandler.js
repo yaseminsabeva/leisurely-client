@@ -86,6 +86,20 @@ const service = {
       .catch(errorHandler);
   },
 
+  getEventsCreatedByUser() {
+    return service
+      .get("/auth/me/hosted-events")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  getEventsSubscribeddByUser() {
+    return service
+      .get("/auth/me/subscrided-events")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
   addEventForm(eventInfo) {
     return service
       .post("/events", eventInfo)
