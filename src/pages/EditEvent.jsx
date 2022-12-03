@@ -76,6 +76,11 @@ function EditEvent() {
         setError(error.response);
       });
   }
+
+  if (!event) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <>
       {isLoggedIn &&

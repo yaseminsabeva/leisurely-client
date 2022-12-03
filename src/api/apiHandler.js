@@ -95,7 +95,7 @@ const service = {
 
   editEventForm(eventInfo) {
     return service
-      .patch(`/events/${eventInfo._id}`)
+      .patch(`/events/${eventInfo._id}`, eventInfo)
       .then((res) => res.data)
       .catch(errorHandler);
   },
