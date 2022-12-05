@@ -134,12 +134,13 @@ const service = {
       .then((res) => res.data)
       .catch(errorHandler);
   },
-  // getAllTheCats() {
-  // 	return service
-  // 		.get("/api/cats")
-  // 		.then((res) => res.data)
-  // 		.catch(errorHandler);
-  // },
+
+  getEventByFilter(filterQuery) {
+    return service
+      .get(`/events`)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
 };
 
 // export default apiHandler
