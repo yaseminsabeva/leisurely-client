@@ -11,7 +11,8 @@ return (
         {event.attendees.map((element)=>{ 
             return (
               (isLoggedIn && currentUser.username === element.username ? 'You' :
-              <Link to={`/users/${element._id}`} key={element._id}>{element.name}</Link>)
+              // <Link to={`/users/${element._id}`} key={element._id}>{element.name}</Link>)
+              <Link to={`/users/${element.name}`} key={element._id}>{element.name}</Link>)
               )
           })}
       

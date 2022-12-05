@@ -21,7 +21,7 @@ function SubscribedEvents() {
     return (
         events.map((element) => {
             return (
-                <Link to={`/events/${element._id}`}>
+                <Link key={element._id} to={`/events/${element._id}`}>
                 <div className="event-card">
                   <picture>
                     <img src={element.image} alt="event picture" />
