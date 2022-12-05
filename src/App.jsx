@@ -11,14 +11,17 @@ import OneEvent from "./pages/OneEvent";
 import AddEvent from "./pages/AddEvent";
 import EditEvent from "./pages/EditEvent";
 import Users from "./pages/Users";
+import { useState } from "react";
 
 function App() {
+  const [search, setSearch] = useState("");
+
   return (
     <div className="App">
-      <NavMain />
+      <NavMain search={search} setSearch={setSearch} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/events" element={<ListEvents />} />
+        <Route path="/events" element={<ListEvents search={search} />} />
         <Route path="/events/:id" element={<OneEvent />} />
         <Route path="/users/:id" element={<Users />} />
 

@@ -149,12 +149,12 @@ const service = {
       .catch(errorHandler);
   },
 
-  searchNav(searchInfo) {
-    return service
-      .post("/events/search", searchInfo)
-      .then((res) => res.data)
-      .catch(errorHandler);
-  },
+  // searchNav(searchInfo) {
+  //   return service
+  //     .post("/events/search", searchInfo)
+  //     .then((res) => res.data)
+  //     .catch(errorHandler);
+  // },
 };
 
 // export default apiHandler
