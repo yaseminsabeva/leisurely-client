@@ -3,6 +3,7 @@ import useAuth from "../../auth/useAuth";
 import "./NavMain.css";
 import Search from "../Search/Search";
 import logo from "../../assets/logo.png";
+import { useState } from "react";
 
 const NavMain = () => {
   const { isLoggedIn, currentUser, removeUser } = useAuth();
