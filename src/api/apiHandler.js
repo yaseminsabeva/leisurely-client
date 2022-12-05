@@ -58,6 +58,13 @@ const service = {
       .catch(errorHandler);
   },
 
+  searchHome(searchString) {
+    return service
+      .post("/search/home", searchString)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
   getOneEvent(eventId) {
     return service
       .get(`/events/${eventId}`)
