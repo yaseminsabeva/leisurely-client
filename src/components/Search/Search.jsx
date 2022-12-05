@@ -14,7 +14,7 @@ function Search() {
     // setSearch(e.target.value);
     console.log(search);
     service
-      .searchNav({ title: search })
+      .searchNav({ searchData: search })
       .then(() => {})
       .catch((error) => {
         console.error(error);
