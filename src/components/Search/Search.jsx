@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { Navigate, useSearchParams } from "react-router-dom";
 import service from "../../api/apiHandler";
+import { useNavigate } from "react-router-dom";
 
-function Search() {
-  const [search, setSearch] = useState("");
+function Search({ search, setSearch }) {
+  const [searchParams, setSearchParams] = useSearchParams({ title: "" });
+  const navigate = useNavigate();
 
   // function handleSubmit() {
   //   preventDefault();
@@ -13,12 +16,14 @@ function Search() {
     e.preventDefault();
     // setSearch(e.target.value);
     console.log(search);
-    service
-      .searchNav({ searchData: search })
-      .then(() => {})
-      .catch((error) => {
-        console.error(error);
-      });
+    // setSearchParams({ title: search });
+    navigate("/events?title=" + search);
+    // service
+    //   .searchNav({ searchData: search })
+    //   .then(() => {})
+    //   .catch((error) => {
+    //     console.error(error);
+    //   });
   }
   return (
     <form onSubmit={handleSearch}>

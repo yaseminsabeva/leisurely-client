@@ -2,27 +2,11 @@ import React, { useEffect, useState } from "react";
 import "./EventFilter.css";
 import service from "../../api/apiHandler";
 
-function EventFilter({ setEvents }) {
+function EventFilter({ checkers, setCheckers }) {
   const [filter, setFilter] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  const [checkers, setCheckers] = useState({
-    "Art & Culture": false,
-    "Community & Environment": false,
-    Dancing: false,
-    Games: false,
-    "Health & Wellbeing": false,
-    Language: false,
-    Music: false,
-    "Science & Education": false,
-    "Sports & Fitness": false,
-    "Support & Coaching": false,
-    Technology: false,
-    "Travel & Outdoors": false,
-    "Writing & Literature": false,
-    "Pets & Animals": false,
-    Other: false,
-  });
+
   const {
     "Art & Culture": art,
     "Community & Environment": community,
@@ -41,30 +25,30 @@ function EventFilter({ setEvents }) {
     Other: other,
   } = checkers;
 
-  useEffect(() => {
-    service
-      .get("/events", {
-        params: { checkers, startDate },
-      })
-      .then((res) => setEvents(res.data))
-      .catch((err) => console.log(err));
-  }, [
-    art,
-    community,
-    dancing,
-    games,
-    health,
-    language,
-    music,
-    science,
-    sports,
-    support,
-    technology,
-    travel,
-    writing,
-    pets,
-    other,
-  ]);
+  // useEffect(() => {
+  //   service
+  //     .get("/events", {
+  //       params: { checkers, startDate },
+  //     })
+  //     .then((res) => setEvents(res.data))
+  //     .catch((err) => console.log(err));
+  // }, [
+  //   art,
+  //   community,
+  //   dancing,
+  //   games,
+  //   health,
+  //   language,
+  //   music,
+  //   science,
+  //   sports,
+  //   support,
+  //   technology,
+  //   travel,
+  //   writing,
+  //   pets,
+  //   other,
+  // ]);
 
   function handleStartDate(e) {}
 
