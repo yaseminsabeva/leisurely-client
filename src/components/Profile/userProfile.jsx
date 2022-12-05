@@ -1,11 +1,10 @@
 import React from "react"
-import "./profile.css"
 
 function UserProfile({user}) {
 return (
-	<div className="user box">
+	<div className="profile event-card">
     <picture><img src={user.picture} alt=""/></picture>
-      <div className="user infos">
+      <div className="profile user-info">
         <ul>
           <li>Name: {user.name}</li>
           <li>Username: {user.username}</li>

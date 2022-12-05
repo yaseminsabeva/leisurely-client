@@ -21,17 +21,43 @@ function SubscribedEvents() {
     return (
         events.map((element) => {
             return (
-            <div className="event box" key={element._id}>
-                <picture><img src={element.image} alt={element.title}/></picture>
-                    <div className="event infos">
-                        <ul>
-                        <li><Link to={`/events/${element._id}`}>{element.title}</Link></li>
-                        <li>{element.dateOfEvent.slice(0,9)} / {element.time}</li>
-                        <li>{element.category}</li>
-                        <li>{element.location}</li>
-                     </ul>
+                <Link to={`/events/${element._id}`}>
+                <div className="event-card">
+                  <picture>
+                    <img src={element.image} alt="event picture" />
+                  </picture>
+                  <div className="event-content">
+                    <p className="keywords">Keywords: {element.keywords}</p>
+                    <h2>{element.title}</h2>
+                    <div className="event-info">
+                      <div>
+                        <i className="fa fa-calendar" aria-hidden="true"></i>
+                        <span>
+                          {new Intl.DateTimeFormat("en-GB").format(
+                            new Date(element.dateOfEvent)
+                          )}
+                        </span>
+                      </div>
+                      <div>
+                        <i className="fa-regular fa-clock"></i>
+                        <span>{element.time}</span>
+                      </div>
+                      <div>
+                        <i className="fa-solid fa-location-dot"></i>
+                        <span>{element.location}</span>
+                      </div>
+                      <div>
+                        <i className="fa fa-eur" aria-hidden="true"></i>
+                        <span>{element.price || "Free"}</span>
+                      </div>
+                      <div>
+                        <i className="fa fa-list" aria-hidden="true"></i>
+                        <span>{element.category}</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-	        </div>
+              </Link>
             )
         })
     )
