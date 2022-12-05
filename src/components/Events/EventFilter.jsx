@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./EventFilter.css";
 import service from "../../api/apiHandler";
+import Search from "../Search/Search";
 
-function EventFilter({ checkers, setCheckers }) {
+function EventFilter({ checkers, setCheckers, search, setSearch }) {
   const [filter, setFilter] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
@@ -61,6 +62,7 @@ function EventFilter({ checkers, setCheckers }) {
   return (
     <div className="filter-container">
       <div className="filter-menu">
+        <Search search={search} setSearch={setSearch} />
         <label htmlFor="date">From:</label>
         <input
           type="date"

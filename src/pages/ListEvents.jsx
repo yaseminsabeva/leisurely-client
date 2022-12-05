@@ -4,7 +4,7 @@ import EventCardSmall from "../components/Events/EventCardSmall";
 import EventFilter from "../components/Events/EventFilter";
 import { useSearchParams } from "react-router-dom";
 
-function ListEvents({ search }) {
+function ListEvents({ search, setSearch }) {
   const [searchParams] = useSearchParams();
   const [events, setEvents] = useState([]);
   const [checkers, setCheckers] = useState({
@@ -109,14 +109,21 @@ function ListEvents({ search }) {
   //   other,
   // ]);
 
-  if (!events.length) {
-    return <div className="loading">Loading....</div>;
-  }
   return (
     <div>
-      <EventFilter checkers={checkers} setCheckers={setCheckers} />
+      <EventFilter
+        checkers={checkers}
+        setCheckers={setCheckers}
+        search={search}
+        setSearch={setSearch}
+      />
       <ul>
         <h1>Upcoming Events</h1>
+        {!events.length ? (
+          <div className="loading">No events matching your criteria....</div>
+        ) : (
+          ""
+        )}
         {events.map((event) => {
           return <EventCardSmall key={event._id} event={event} />;
         })}

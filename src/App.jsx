@@ -18,10 +18,13 @@ function App() {
 
   return (
     <div className="App">
-      <NavMain search={search} setSearch={setSearch} />
+      <NavMain />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/events" element={<ListEvents search={search} />} />
+        <Route
+          path="/events"
+          element={<ListEvents search={search} setSearch={setSearch} />}
+        />
         <Route path="/events/:id" element={<OneEvent />} />
         <Route path="/users/:id" element={<Users />} />
 

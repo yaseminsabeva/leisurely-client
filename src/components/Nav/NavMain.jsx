@@ -5,7 +5,7 @@ import Search from "../Search/Search";
 import logo from "../../assets/logo.png";
 import { useState } from "react";
 
-const NavMain = ({ search, setSearch }) => {
+const NavMain = () => {
   const { isLoggedIn, currentUser, removeUser } = useAuth();
   return (
     <nav className="NavMain">
@@ -13,7 +13,6 @@ const NavMain = ({ search, setSearch }) => {
         <Link to="/">
           <img src={logo} alt="" className="logo" />
         </Link>
-        <Search search={search} setSearch={setSearch} />
       </div>
 
       <div className="nav">
