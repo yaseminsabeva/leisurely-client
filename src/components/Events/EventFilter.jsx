@@ -1,55 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./EventFilter.css";
-import service from "../../api/apiHandler";
 import Search from "../Search/Search";
 
 function EventFilter({ checkers, setCheckers, search, setSearch }) {
   const [filter, setFilter] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-
-  const {
-    "Art & Culture": art,
-    "Community & Environment": community,
-    Dancing: dancing,
-    Games: games,
-    "Health & Wellbeing": health,
-    Language: language,
-    Music: music,
-    "Science & Education": science,
-    "Sports & Fitness": sports,
-    "Support & Coaching": support,
-    Technology: technology,
-    "Travel & Outdoors": travel,
-    "Writing & Literature": writing,
-    "Pets & Animals": pets,
-    Other: other,
-  } = checkers;
-
-  // useEffect(() => {
-  //   service
-  //     .get("/events", {
-  //       params: { checkers, startDate },
-  //     })
-  //     .then((res) => setEvents(res.data))
-  //     .catch((err) => console.log(err));
-  // }, [
-  //   art,
-  //   community,
-  //   dancing,
-  //   games,
-  //   health,
-  //   language,
-  //   music,
-  //   science,
-  //   sports,
-  //   support,
-  //   technology,
-  //   travel,
-  //   writing,
-  //   pets,
-  //   other,
-  // ]);
 
   function handleStartDate(e) {}
 
@@ -79,8 +35,7 @@ function EventFilter({ checkers, setCheckers, search, setSearch }) {
           onChange={handleEndDate}
         />
         <label htmlFor="category">Category</label>
-        {/* 
-      gave up on this because checkboxes suck */}
+
         <div className="select">
           <input
             type="checkbox"
