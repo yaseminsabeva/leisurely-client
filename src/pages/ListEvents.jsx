@@ -3,7 +3,14 @@ import service from "../api/apiHandler";
 import EventCardSmall from "../components/Events/EventCardSmall";
 import EventFilter from "../components/Events/EventFilter";
 
-function ListEvents({ search, setSearch }) {
+function ListEvents({
+  startDate,
+  setStartDate,
+  endDate,
+  setEndDate,
+  search,
+  setSearch,
+}) {
   const [events, setEvents] = useState([]);
   const [checkers, setCheckers] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -12,14 +19,14 @@ function ListEvents({ search, setSearch }) {
     setIsLoading(true);
     service
       .get("/events", {
-        params: { title: search, checkers },
+        params: { title: search, checkers, startDate, endDate },
       })
       .then((res) => {
         setEvents(res.data);
       })
       .catch((e) => console.log(e.message))
       .finally(() => setIsLoading(false));
-  }, [checkers, search]);
+  }, [checkers, search, startDate, endDate]);
 
   return (
     <div>
@@ -28,6 +35,10 @@ function ListEvents({ search, setSearch }) {
         setCheckers={setCheckers}
         search={search}
         setSearch={setSearch}
+        startDate={startDate}
+        setStartDate={setStartDate}
+        endDate={endDate}
+        setEndDate={setEndDate}
       />
       <ul>
         <h1>Upcoming Events</h1>

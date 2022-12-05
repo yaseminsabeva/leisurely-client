@@ -2,14 +2,23 @@ import React, { useState } from "react";
 import "./EventFilter.css";
 import Search from "../Search/Search";
 
-function EventFilter({ checkers, setCheckers, search, setSearch }) {
-  const [filter, setFilter] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
+function EventFilter({
+  checkers,
+  setCheckers,
+  search,
+  setSearch,
+  startDate,
+  setStartDate,
+  endDate,
+  setEndDate,
+}) {
+  function handleStartDate(e) {
+    setStartDate(e.target.value);
+  }
 
-  function handleStartDate(e) {}
-
-  function handleEndDate(e) {}
+  function handleEndDate(e) {
+    setEndDate(e.target.value);
+  }
 
   function handleCheck(e) {
     setCheckers({ ...checkers, [e.target.name]: !checkers[e.target.name] });
@@ -24,7 +33,6 @@ function EventFilter({ checkers, setCheckers, search, setSearch }) {
           type="date"
           id="startDate"
           value={startDate}
-          max={new Date()}
           onChange={handleStartDate}
         />
         <label htmlFor="date">To:</label>
