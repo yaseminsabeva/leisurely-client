@@ -1,4 +1,7 @@
 /* USER */
+.profile {
+    padding: 30px;
+}
 
 .profile button {
     font: inherit;
@@ -23,6 +26,11 @@
 .user-info span {
     color: black;
     font-weight: lighter;
+}
+
+.profile .event-card {
+    /* width: 100%; */
+    margin-bottom: 30px;
 }
 
 

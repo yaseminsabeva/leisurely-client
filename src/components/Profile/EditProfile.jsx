@@ -82,10 +82,10 @@ const EditProfile = ({user, setShowEdit}) => {
 					name="password"
 				/> */}
 				<label htmlFor="description">Description</label>
-				<input
+				<textarea
 					onChange={handleChange}
 					value={values.description}
-					type="textarea"
+					type="text"
 					placeholder="Add some description"
 					id="description"
 					name="description"

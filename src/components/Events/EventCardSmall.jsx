@@ -10,7 +10,7 @@ function EventCardSmall({ event }) {
           <img src={event.image} alt="event picture" />
         </picture>
         <div className="event-content">
-          <p className="keywords">Keywords: {event.keywords}</p>
+          <p className="keywords">{event.keywords}</p>
           <h2>{event.title}</h2>
           <div className="event-info">
             <div>

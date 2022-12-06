@@ -20,6 +20,7 @@ img {
   flex-direction: column;
   flex-grow: 1;
   gap: 2rem;
+  padding: 30px;
 }
 
 .event-info {
@@ -28,7 +29,7 @@ img {
   flex-direction: row;
   margin-top: auto;
   margin-bottom: 0.8rem;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .event-info i {
@@ -37,8 +38,12 @@ img {
 }
 
 .keywords {
-  color: #898989;
+  color: #8c9476;
   font-style: italic;
+  background-color: #fefae0;
+  width: fit-content;
+  padding: 5px;
+  font-weight: bold;
 }
 
 .event-info div {

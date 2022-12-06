@@ -17,7 +17,6 @@ function Profile() {
   return (
     <div className="profile">
       <div>
-        <h1>My profile page</h1>
           <button className="user btn-edit" onClick={() => setShowEdit(!showEdit)}>
             {showEdit ? 'back' : 'Edit form'}
           </button>       
