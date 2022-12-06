@@ -15,7 +15,7 @@ function Profile() {
         return <div className="loading">Loading....</div>
     }
   return (
-    <div className="profile">
+    <div className="profile container">
       <div>
           <button className="user btn-edit" onClick={() => setShowEdit(!showEdit)}>
             {showEdit ? 'back' : 'Edit form'}

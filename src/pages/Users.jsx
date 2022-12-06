@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react"
 import { useParams, Link, useNavigate } from "react-router-dom";
 import service from '../api/apiHandler'
+import UserProfile from "../components/Profile/UserProfile"
 
 
 function Users() {
@@ -23,8 +24,10 @@ const [attendee, setAttendeeProfil] = useState(null);
   }
  
   return (
-    <div className="">
-      <h1>{attendee.name}'s Profile</h1>
+    <div className="profile container">
+      <div>
+         <UserProfile user={attendee}/>
+      </div>
     </div>
   )
 }

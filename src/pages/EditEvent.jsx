@@ -84,7 +84,7 @@ function EditEvent() {
   return (
     <>
       {isLoggedIn && currentUser.username === event.host.username ? (
-        <div className="edit-event global-form">
+        <div className="edit-event global-form container">
           <form onSubmit={handleSubmit}>
             <label htmlFor="title">Title: </label>
             <input
@@ -131,7 +131,7 @@ function EditEvent() {
               onChange={handleChange}
             />
             <label htmlFor="description">Description: </label>
-            <input
+            <textarea
               type="text"
               id="description"
               name="description"
