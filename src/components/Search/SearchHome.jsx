@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import service from "../../api/apiHandler";
 
 function SearchHome() {
   const [search, setSearch] = useState("");
@@ -11,6 +10,7 @@ function SearchHome() {
   }
   return (
     <div>
+      <h2></h2>
       <form onSubmit={handleSearch}>
         <input
           type="search"

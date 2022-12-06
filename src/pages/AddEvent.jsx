@@ -47,7 +47,7 @@ function AddEvent() {
       });
   }
   return (
-    <div className="edit-event global-form">
+    <div className="edit-event global-form container">
       <h2>Add an event!</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Title: </label>
@@ -95,7 +95,7 @@ function AddEvent() {
           onChange={handleChange}
         />
         <label htmlFor="description">Description: </label>
-        <input
+        <textarea
           type="text"
           id="description"
           name="description"

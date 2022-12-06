@@ -15,7 +15,7 @@ function ListEvents({ filters, setFilters }) {
   const { search, startDate, endDate } = filters;
 
   useEffect(() => {
-    title = searchParams.get("title");
+    title = searchParams.get("title") || "";
 
     setFilters((currentValue) => {
       return { ...currentValue, search: title };
@@ -41,15 +41,17 @@ function ListEvents({ filters, setFilters }) {
   }
 
   return (
-    <div>
-      <EventFilter
-        checkers={checkers}
-        setCheckers={setCheckers}
-        filters={filters}
-        setFilters={setFilters}
-        getEvents={getEvents}
-      />
-      <ul>
+    <div className="events container">
+      <div className="filters fixed-menu">
+        <EventFilter
+          checkers={checkers}
+          setCheckers={setCheckers}
+          filters={filters}
+          setFilters={setFilters}
+          getEvents={getEvents}
+        />
+      </div>
+      <div className="events-list">
         <h1>Upcoming Events</h1>
         {/* prep for the loading component */}
         {isLoading && <p>am loading</p>}
@@ -61,7 +63,7 @@ function ListEvents({ filters, setFilters }) {
         {events.map((event) => {
           return <EventCardSmall key={event._id} event={event} />;
         })}
-      </ul>
+      </div>
     </div>
   );
 }

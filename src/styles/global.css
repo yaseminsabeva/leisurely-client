@@ -31,11 +31,15 @@ ul {
 h1 {
   font-size: 30px;
   /* *background-color: #fefae0; */
-  border-top: 1px solid #faedcd;
-  color: #ccd5ae;
+  border-top: 1px solid var(--beige);
+  color: var(--green);
   padding: 10px;
 }
 
 button {
   border-radius: 5px;
+}
+
+.container {
+  margin-top: 80px;
 }
