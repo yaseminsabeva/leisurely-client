@@ -47,24 +47,15 @@ function OneEvent() {
   if (!event) return <div className="loading">Loading...</div>;
 
   return (
-    <div className="">
-      <div className=" event infos">
-        {/* //jeanne// */}
-        <h1>{event.title}</h1>
-        <p>Username : {event.host.username}</p>
-        <p>Email : {event.host.email}</p>
-        <p>Price : {event.price === 0 ? "Free" : event.price}</p>
-        <p>Number of place {event.maxAttendees - event.attendees.length}</p>
-      </div>
-
-      <Attendees fetchEvent={fetchEvent} currentUser={currentUser} isLoggedIn={isLoggedIn} event={event}/>
-      {/* //jeanne// */} 
-
-      <img src={event.image} alt={event.title} />
+    <div>
       {isLoggedIn && currentUser.username === event.host.username ? (
-        <div>
-          <Link to={`/events/${event._id}/edit`}>Edit</Link>{" "}
-          <div onClick={() => setDeleteForm(true)}>Delete</div>
+        <div className="edit-delete-div">
+          <div className="edit-btn">
+            <Link to={`/events/${event._id}/edit`}>Edit</Link>
+          </div>
+          <div className="delete-btn" onClick={() => setDeleteForm(true)}>
+            Delete
+          </div>
           {deleteForm && (
             <div id="deleteForm">
               <p>are u sure</p>
@@ -74,8 +65,63 @@ function OneEvent() {
           )}
         </div>
       ) : (
-        <h1>You didn't post this event</h1>
+        ""
       )}
+      <img className="one-event-image" src={event.image} alt={event.title} />
+      <div className="one-event-infos">
+        <div className="event-infos">
+          <h1>{event.title}</h1>
+          <p>
+            <Link to={`/users/${event.host.username}`} key={event.host._id}>
+              <span>Posted By: </span>
+              {event.host.username}
+            </Link>
+          </p>
+          <p>
+            <span>Email: </span> {event.host.email}
+          </p>
+          <p>
+            <span>Price: </span> {event.price === 0 ? "Free" : event.price}
+          </p>
+          <p>
+            <span>Number of places remaining: </span>
+            {event.maxAttendees - event.attendees.length}
+          </p>
+          <Attendees
+            fetchEvent={fetchEvent}
+            currentUser={currentUser}
+            isLoggedIn={isLoggedIn}
+            event={event}
+          />
+        </div>
+
+        <div className="time-loc-price-div">
+          <div>
+            <i className="fa fa-calendar" aria-hidden="true"></i>
+            <span>
+              {new Intl.DateTimeFormat("en-GB").format(
+                new Date(event.dateOfEvent)
+              )}
+            </span>
+          </div>
+          <div>
+            <i className="fa-regular fa-clock"></i>
+            <span>{event.time}</span>
+          </div>
+          <div>
+            <i className="fa-solid fa-location-dot"></i>
+            <span>{event.location}</span>
+          </div>
+          <div>
+            <i className="fa fa-eur" aria-hidden="true"></i>
+            <span>{event.price || "Free"}</span>
+          </div>
+          <div>
+            <i className="fa fa-list" aria-hidden="true"></i>
+            <span>{event.category}</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
