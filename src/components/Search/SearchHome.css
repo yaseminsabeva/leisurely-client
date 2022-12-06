@@ -1,0 +1,26 @@
+.home-search-bar {
+  display: flex;
+  gap: 2rem;
+}
+
+.search-input {
+  height: 60px;
+  width: 45vw;
+  font-size: 1.6rem;
+  padding: 0 1rem;
+}
+
+.home-search-btn {
+  all: unset;
+  height: 60px;
+  width: 10rem;
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.home-search-btn:hover {
+  cursor: pointer;
+  color: var(--lightgreen);
+}
