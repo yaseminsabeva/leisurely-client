@@ -1,0 +1,19 @@
+#home-title {
+  color: var(--beige);
+  text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
+  font-size: 3rem;
+}
+
+.home-bg-video {
+  position: relative;
+}
+
+.entire-home {
+  display: flex;
+  justify-content: center;
+}
+
+.home-content {
+  position: absolute;
+  top: 45%;
+}
