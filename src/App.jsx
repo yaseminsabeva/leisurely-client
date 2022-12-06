@@ -12,6 +12,7 @@ import AddEvent from "./pages/AddEvent";
 import EditEvent from "./pages/EditEvent";
 import Users from "./pages/Users";
 import { useState } from "react";
+import "./components/Forms/Form.css"
 
 function App() {
   const [search, setSearch] = useState("");

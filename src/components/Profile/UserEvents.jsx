@@ -18,9 +18,15 @@ function UserEvents() {
           });
         console.log(events)
     }, [])
-    if (!events) return <div className="nothing-to-show">Nothing to show....</div>
+    if (!events.length) return (
+      <div>
+        <h1>Events I Host</h1>
+        <div className="nothing-to-show">Nothing to show....</div>
+      </div>
+    )
     return (
       <div>
+      <h1>Events I Host</h1>
       {events.map((event) => {
         return <EventCardSmall key={event._id} event={event} />
       })}

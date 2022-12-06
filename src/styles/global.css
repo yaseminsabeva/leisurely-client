@@ -27,3 +27,7 @@ ul {
   --beige: #faedcd;
   --brownish: #d4a373;
 }
+
+button {
+  border-radius: 5px;
+}

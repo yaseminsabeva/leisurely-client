@@ -31,8 +31,9 @@ const FormSignIn = () => {
 	return (
 		<>
 			{error && <h3 className="error">{error.message}</h3>}
+			<div className="add-user global-form">
+			<h2>Signin</h2>
 			<form onSubmit={handleSubmit}>
-				<h2>Signin</h2>
 				<label htmlFor="email">Email</label>
 				<input
 					type="email"
@@ -51,6 +52,7 @@ const FormSignIn = () => {
 				/>
 				<button>Submit</button>
 			</form>
+			</div>
 		</>
 	)
 }

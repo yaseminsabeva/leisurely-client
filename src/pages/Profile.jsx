@@ -5,7 +5,7 @@ import EditProfile from "../components/Profile/EditProfile"
 import UserEvents from "../components/Profile/UserEvents"
 import SubscribedEvents from "../components/Profile/SubscribedEvents"
 import useAuth from "../auth/useAuth"
-//import { Link } form 
+import "../components/Profile/Profile.css"
 
 function Profile() {
   const {currentUser} = useAuth()
@@ -17,18 +17,16 @@ function Profile() {
   return (
     <div className="profile">
       <div>
-        <h1>Welcome {user.username}</h1>
+        <h1>My profile page</h1>
           <button className="user btn-edit" onClick={() => setShowEdit(!showEdit)}>
             {showEdit ? 'back' : 'Edit form'}
           </button>       
         {showEdit ? <EditProfile user={user} setShowEdit={setShowEdit} /> : <UserProfile user={user}/>}
       </div>
       <div>
-        <h1>Events I Host</h1>
         <UserEvents/>
       </div>
       <div>
-        <h1>Events I Subscribe To</h1>
         <SubscribedEvents/>
       </div>
     </div>
