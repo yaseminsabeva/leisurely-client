@@ -1,0 +1,36 @@
+/* USER */
+.profile {
+    padding: 30px;
+}
+
+.profile button {
+    font: inherit;
+    position: absolute;
+    background-color: rgb(247, 241, 225);
+    color: #8c9476;
+    padding: 15px;
+    font-weight: bold;
+    right: 30px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 2rem;
+    padding: 30px;
+    color: var(--brownish);
+    font-weight: bold;
+}
+
+.user-info span {
+    color: black;
+    font-weight: lighter;
+}
+
+.profile .event-card {
+    /* width: 100%; */
+    margin-bottom: 30px;
+}
+
+

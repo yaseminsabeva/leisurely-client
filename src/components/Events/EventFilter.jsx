@@ -5,50 +5,66 @@ import Search from "../Search/Search";
 function EventFilter({
   checkers,
   setCheckers,
-  search,
-  setSearch,
-  startDate,
-  setStartDate,
-  endDate,
-  setEndDate,
+  filters,
+  setFilters,
+  getEvents,
 }) {
+  const { search, endDate, startDate } = filters;
+
   function handleStartDate(e) {
-    setStartDate(e.target.value);
+    setFilters((currentValue) => {
+      return { ...currentValue, startDate: e.target.value };
+    });
   }
 
   function handleEndDate(e) {
-    setEndDate(e.target.value);
+    setFilters((currentValue) => {
+      return { ...currentValue, endDate: e.target.value };
+    });
   }
 
   function handleCheck(e) {
     setCheckers({ ...checkers, [e.target.name]: !checkers[e.target.name] });
   }
 
+  function setSearch(newSearch) {
+    setFilters((currentValue) => {
+      return { ...currentValue, search: newSearch };
+    });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    getEvents();
+  }
+
   return (
     <div className="filter-container">
       <div className="filter-menu">
-        <Search search={search} setSearch={setSearch} />
-        <label htmlFor="date">From:</label>
-        <input
-          type="date"
-          id="startDate"
-          value={startDate}
-          onChange={handleStartDate}
-        />
-        <label htmlFor="date">To:</label>
-        <input
-          type="date"
-          id="endDate"
-          value={endDate}
-          onChange={handleEndDate}
-        />
+        <form onSubmit={handleSubmit}>
+          <Search search={search} setSearch={setSearch} />
+          <label htmlFor="date">From:</label>
+          <input
+            type="date"
+            id="startDate"
+            value={startDate}
+            onChange={handleStartDate}
+          />
+          <label htmlFor="date">To:</label>
+          <input
+            type="date"
+            id="endDate"
+            value={endDate}
+            onChange={handleEndDate}
+          />
+          <input type="submit" value="Apply Filters" />
+        </form>
         <label htmlFor="category">Category</label>
 
         <div className="select">
           <input
             type="checkbox"
-            checked={checkers["Art & Culture"]}
-            value="Art & Culture"
+            checked={checkers["Art & Culture"] || false}
             name="Art & Culture"
             id="art"
             onChange={handleCheck}
@@ -57,8 +73,7 @@ function EventFilter({
 
           <input
             type="checkbox"
-            checked={checkers["Community & Environment"]}
-            value="Community & Environment"
+            checked={checkers["Community & Environment"] || false}
             name="Community & Environment"
             id="community"
             onChange={handleCheck}
@@ -67,8 +82,7 @@ function EventFilter({
 
           <input
             type="checkbox"
-            checked={checkers["Dancing"]}
-            value="Dancing"
+            checked={checkers["Dancing"] || false}
             name="Dancing"
             id="dancing"
             onChange={handleCheck}
@@ -77,8 +91,7 @@ function EventFilter({
 
           <input
             type="checkbox"
-            checked={checkers["Games"]}
-            value="Games"
+            checked={checkers["Games"] || false}
             name="Games"
             id="games"
             onChange={handleCheck}
@@ -87,8 +100,7 @@ function EventFilter({
 
           <input
             type="checkbox"
-            checked={checkers["Health & Wellbeing"]}
-            value="Health & Wellbeing"
+            checked={checkers["Health & Wellbeing"] || false}
             name="Health & Wellbeing"
             id="health"
             onChange={handleCheck}
@@ -97,8 +109,7 @@ function EventFilter({
 
           <input
             type="checkbox"
-            checked={checkers["Language"]}
-            value="Language"
+            checked={checkers["Language"] || false}
             name="Language"
             id="language"
             onChange={handleCheck}
@@ -107,8 +118,7 @@ function EventFilter({
 
           <input
             type="checkbox"
-            checked={checkers["Music"]}
-            value="Music"
+            checked={checkers["Music"] || false}
             name="Music"
             id="music"
             onChange={handleCheck}
@@ -117,8 +127,7 @@ function EventFilter({
 
           <input
             type="checkbox"
-            checked={checkers["Science & Education"]}
-            value="Science & Education"
+            checked={checkers["Science & Education"] || false}
             name="Science & Education"
             id="science"
             onChange={handleCheck}
@@ -127,8 +136,7 @@ function EventFilter({
 
           <input
             type="checkbox"
-            checked={checkers["Sports & Fitness"]}
-            value="Sports & Fitness"
+            checked={checkers["Sports & Fitness"] || false}
             name="Sports & Fitness"
             id="sports"
             onChange={handleCheck}
@@ -137,8 +145,7 @@ function EventFilter({
 
           <input
             type="checkbox"
-            checked={checkers["Support & Coaching"]}
-            value="Support & Coaching"
+            checked={checkers["Support & Coaching"] || false}
             name="Support & Coaching"
             id="support"
             onChange={handleCheck}
@@ -147,8 +154,7 @@ function EventFilter({
 
           <input
             type="checkbox"
-            checked={checkers["Technology"]}
-            value="Technology"
+            checked={checkers["Technology"] || false}
             name="Technology"
             id="technology"
             onChange={handleCheck}
@@ -157,8 +163,7 @@ function EventFilter({
 
           <input
             type="checkbox"
-            checked={checkers["Travel & Outdoors"]}
-            value="Travel & Outdoors"
+            checked={checkers["Travel & Outdoors"] || false}
             name="Travel & Outdoors"
             id="travel"
             onChange={handleCheck}
@@ -167,8 +172,7 @@ function EventFilter({
 
           <input
             type="checkbox"
-            checked={checkers["Writing & Literature"]}
-            value="Writing & Literature"
+            checked={checkers["Writing & Literature"] || false}
             name="Writing & Literature"
             id="writing"
             onChange={handleCheck}
@@ -177,8 +181,7 @@ function EventFilter({
 
           <input
             type="checkbox"
-            checked={checkers["Pets & Animals"]}
-            value="Pets & Animals"
+            checked={checkers["Pets & Animals"] || false}
             name="Pets & Animals"
             id="pets"
             onChange={handleCheck}
@@ -187,8 +190,7 @@ function EventFilter({
 
           <input
             type="checkbox"
-            checked={checkers["Other"]}
-            value="Other"
+            checked={checkers["Other"] || false}
             name="Other"
             id="other"
             onChange={handleCheck}

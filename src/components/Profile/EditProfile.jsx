@@ -17,11 +17,9 @@ const EditProfile = ({user, setShowEdit}) => {
 		e.preventDefault()
 		const fd = new FormData()
 		for (const [key, value] of Object.entries(values)) {
-			// console.log(key, value)
 			fd.append(key, value)
 		}
 		// fd.append('name', values.name)
-	
 
 		 service
 		 	.editUserProfile(fd)
@@ -48,7 +46,7 @@ const EditProfile = ({user, setShowEdit}) => {
 	return (
 		<>
 			{error && <h3 className="error">{error.message}</h3>}
-			<div className="edit form">
+			<div className="edit-user global-form">
                 <form onSubmit={handleSubmit} >
 				<h2>Edit your profile</h2>
 				<label htmlFor="name">Name</label>
@@ -75,19 +73,19 @@ const EditProfile = ({user, setShowEdit}) => {
 					id="email"
 					name="email"
 				/>
-				<label htmlFor="password">Password</label>
+				{/* <label htmlFor="password">Password</label>
 				<input
 					onChange={handleChange}
 					value={values.password}
 					type="password"
 					id="password"
 					name="password"
-				/>
+				/> */}
 				<label htmlFor="description">Description</label>
-				<input
+				<textarea
 					onChange={handleChange}
 					value={values.description}
-					type="textarea"
+					type="text"
 					placeholder="Add some description"
 					id="description"
 					name="description"
@@ -102,10 +100,13 @@ const EditProfile = ({user, setShowEdit}) => {
 				/>
 				<button>Submit</button>
 			    </form>
+
+				<div className="delete-user">
+					<h2>Delete your profile</h2>
+                	<button onClick={handleDelete}>Delete my profil</button>
+            	</div>
             </div>
-            <div className="delete form">
-                <button onClick={handleDelete}>Delete my profil</button>
-            </div>
+            
 		</>
 		
 	)

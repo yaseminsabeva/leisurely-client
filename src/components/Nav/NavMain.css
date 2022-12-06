@@ -4,8 +4,9 @@
   height: 80px;
   justify-content: space-between;
   background-color: rgb(247, 241, 225);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #8c9476;
+  padding: 30px;
 }
 
 .nav {
@@ -26,5 +27,5 @@ button {
 
 a > .logo {
   height: fit-content;
-  width: 10vw;
+  width: 12vw;
 }

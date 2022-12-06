@@ -47,7 +47,8 @@ function AddEvent() {
       });
   }
   return (
-    <div>
+    <div className="edit-event global-form">
+      <h2>Add an event!</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Title: </label>
         <input

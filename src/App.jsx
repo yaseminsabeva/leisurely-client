@@ -12,11 +12,14 @@ import AddEvent from "./pages/AddEvent";
 import EditEvent from "./pages/EditEvent";
 import Users from "./pages/Users";
 import { useState } from "react";
+import "./components/Forms/Form.css"
 
 function App() {
-  const [search, setSearch] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
+  const [filters, setFilters] = useState({
+    search: "",
+    startDate: "",
+    endDate: "",
+  });
 
   return (
     <div className="App">
@@ -25,16 +28,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route
           path="/events"
-          element={
-            <ListEvents
-              search={search}
-              setSearch={setSearch}
-              startDate={startDate}
-              setStartDate={setStartDate}
-              endDate={endDate}
-              setEndDate={setEndDate}
-            />
-          }
+          element={<ListEvents filters={filters} setFilters={setFilters} />}
         />
         <Route path="/events/:id" element={<OneEvent />} />
         <Route path="/users/:id" element={<Users />} />

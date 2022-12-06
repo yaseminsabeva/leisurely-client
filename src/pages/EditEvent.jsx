@@ -84,7 +84,7 @@ function EditEvent() {
   return (
     <>
       {isLoggedIn && currentUser.username === event.host.username ? (
-        <div>
+        <div className="edit-event global-form">
           <form onSubmit={handleSubmit}>
             <label htmlFor="title">Title: </label>
             <input
