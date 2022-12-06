@@ -30,8 +30,9 @@ const FormSignUp = () => {
 	return (
 		<>
 			{error && <h3 className="error">{error.message}</h3>}
+			<div className="add-user global-form">
+			<h2>Signup</h2>
 			<form onSubmit={handleSubmit} >
-				<h2>Signup</h2>
 				<label htmlFor="name">Name</label>
 				<input
 					onChange={handleChange}
@@ -65,10 +66,10 @@ const FormSignUp = () => {
 					name="password"
 				/>
 				<label htmlFor="description">Description</label>
-				<input
+				<textarea
 					onChange={handleChange}
 					value={values.description}
-					type="textarea"
+					type="text"
 					placeholder="Add some description"
 					id="description"
 					name="description"
@@ -83,6 +84,7 @@ const FormSignUp = () => {
 				/>
 				<button>Submit</button>
 			</form>
+			</div>
 		</>
 		
 	)

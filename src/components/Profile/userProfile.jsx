@@ -5,13 +5,14 @@ return (
 	<div className="profile event-card">
     <picture><img src={user.picture} alt=""/></picture>
       <div className="profile user-info">
-        <ul>
-          <li>Name: {user.name}</li>
-          <li>Username: {user.username}</li>
-          <li>Description: {user.description}</li>
-          <li>Email: {user.email}</li>
-          <li>Password: {user.password}</li>
-        </ul>
+        <div>
+          <div><h2>Welcome {user.name}</h2></div>
+          <br></br>
+          <div>Username: <span>{user.username}</span></div>
+          <div>Email: <span>{user.email}</span></div>
+          <br></br>
+          <div>Description: <span>{user.description}</span></div>
+        </div>
       </div>
 	</div>
   )
