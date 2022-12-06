@@ -1,3 +1,80 @@
-.hide {
+/* .hide {
   display: none;
+} */
+
+.attendees-pic {
+  width: auto;
+  height: 100%;
+}
+.attendees-img-div {
+  display: inline-block;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.event-infos span,
+.subscribe-attendees p {
+  font-weight: bold;
+  color: #d4a373;
+}
+h1 {
+  color: var(--darkgreen);
+}
+
+.subscribe-button {
+  background-color: var(--beige);
+  color: var(--darkgreen);
+  padding: 0.5rem;
+  border-radius: 10%;
+  justify-self: center;
+}
+.one-event-image {
+  height: 100%;
+  width: 70%;
+  margin: auto;
+}
+.edit-delete-div {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10rem;
+}
+.one-event-infos {
+  display: flex;
+  margin: auto;
+  justify-content: space-around;
+}
+.time-loc-price-div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  color: var(--darkgreen);
+}
+.edit-btn,
+.delete-btn {
+  color: var(--darkgreen);
+  background-color: var(--beige);
+  padding: 0.5rem;
+  border-radius: 10%;
+  margin: 1rem;
+}
+.edit-btn {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+/* .event-subscribe-div {
+  display: flex;
+  justify-self: ;
+} */
+.attendees-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.all-attendees {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
 }

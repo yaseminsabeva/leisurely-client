@@ -21,6 +21,7 @@ function EventCardSmall({ event }) {
                 )}
               </span>
             </div>
+
             <div>
               <i className="fa-regular fa-clock"></i>
               <span>{event.time}</span>
