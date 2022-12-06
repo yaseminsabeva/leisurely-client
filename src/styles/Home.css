@@ -11,6 +11,7 @@
 .entire-home {
   display: flex;
   justify-content: center;
+  margin-top: 80px;
 }
 
 .home-content {
