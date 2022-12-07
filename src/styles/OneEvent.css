@@ -29,6 +29,7 @@ h1 {
   padding: 0.5rem;
   border-radius: 10%;
   justify-self: center;
+  font-weight: bold;
 }
 .one-event-image {
   height: 100%;
@@ -58,6 +59,7 @@ h1 {
   padding: 0.5rem;
   border-radius: 10%;
   margin: 1rem;
+  font-weight: bold;
 }
 .edit-btn {
   padding-left: 1rem;

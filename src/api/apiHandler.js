@@ -39,7 +39,7 @@ const service = {
   },
   isLoggedIn() {
     return service
-      .get("/auth/me")
+      .get("/profile/me")
       .then((res) => res.data)
       .catch(errorHandler);
   },
@@ -74,35 +74,35 @@ const service = {
 
   getUserProfile() {
     return service
-      .get("/auth/me")
+      .get("/profile/me")
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
   editUserProfile(userInfo) {
     return service
-      .patch("/auth/me", userInfo)
+      .patch("/profile/me", userInfo)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
   deleteUserProfile(userInfo) {
     return service
-      .delete("/auth/me", userInfo)
+      .delete("/profile/me", userInfo)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
   getEventsCreatedByUser() {
     return service
-      .get("/auth/me/hosted-events")
+      .get("/profile/me/hosted-events")
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
   getEventsSubscribeddByUser() {
     return service
-      .get("/auth/me/subscrided-events")
+      .get("/profile/me/subscrided-events")
       .then((res) => res.data)
       .catch(errorHandler);
   },

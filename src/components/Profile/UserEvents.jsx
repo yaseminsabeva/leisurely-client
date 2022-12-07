@@ -26,7 +26,7 @@ function UserEvents() {
     )
     return (
       <div>
-      <h1>Events I Host</h1>
+      <h1>Events Hosted</h1>
       {events.map((event) => {
         return <EventCardSmall key={event._id} event={event} />
       })}

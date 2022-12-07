@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react"
 import { useParams, Link, useNavigate } from "react-router-dom";
 import service from '../api/apiHandler'
 import UserProfile from "../components/Profile/UserProfile"
+import EventCardSmall from "../components/Events/EventCardSmall"
+import SubscribedEvents from "../components/Profile/SubscribedEvents"
 
 
 function Users() {
@@ -14,6 +16,7 @@ const [attendee, setAttendeeProfil] = useState(null);
     .getAttendeeProfil(id)
     .then((data) => {
         setAttendeeProfil(data);
+        console.log(data)
     })
     .catch((error) => {
         setError(error.response.data)
@@ -28,6 +31,13 @@ const [attendee, setAttendeeProfil] = useState(null);
       <div>
          <UserProfile user={attendee}/>
       </div>
+      <div>
+      <h1>Events Hosted</h1>
+      {attendee.events.map((event) => {
+        return <EventCardSmall key={event._id} event={event} />
+      })}
+    </div>
+    <SubscribedEvents/>
     </div>
   )
 }
