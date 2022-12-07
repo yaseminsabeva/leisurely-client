@@ -57,6 +57,8 @@ h1 {
   flex-direction: column;
   margin-top: 3rem;
   color: var(--darkgreen);
+  min-width: fit-content;
+  padding-left: 5rem;
 }
 .edit-btn,
 .delete-btn {
