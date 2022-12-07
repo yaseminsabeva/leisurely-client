@@ -67,58 +67,64 @@ function OneEvent() {
       ) : (
         ""
       )}
-      <img className="one-event-image" src={event.image} alt={event.title} />
-      <div className="one-event-infos">
-        <div className="event-infos">
-          <h1>{event.title}</h1>
-          <p>
-            <Link to={`/users/${event.host.username}`} key={event.host._id}>
-              <span>Posted By: </span>
-              {event.host.username}
-            </Link>
-          </p>
-          <p>
-            <span>Email: </span> {event.host.email}
-          </p>
-          <p>
-            <span>Price: </span> {event.price === 0 ? "Free" : event.price}
-          </p>
-          <p>
-            <span>Number of places remaining: </span>
-            {event.maxAttendees - event.attendees.length}
-          </p>
-          <Attendees
-            fetchEvent={fetchEvent}
-            currentUser={currentUser}
-            isLoggedIn={isLoggedIn}
-            event={event}
-          />
-        </div>
+      <div className="one-event-page">
+        <img className="one-event-image" src={event.image} alt={event.title} />
+        <div className="one-event-infos">
+          <div className="event-infos">
+            <h1>{event.title}</h1>
+            <p>
+              <span>Description: </span>
+              {event.description}
+            </p>
+            <p>
+              <Link to={`/users/${event.host.username}`} key={event.host._id}>
+                <span>Posted By: </span>
+                {event.host.username}
+              </Link>
+            </p>
+            <p>
+              <span>Email: </span> {event.host.email}
+            </p>
+            <p>
+              <span>Price: </span> {event.price === 0 ? "Free" : event.price}
+            </p>
+            <p>
+              <span>Number of places remaining: </span>
+              {event.maxAttendees - event.attendees.length}
+            </p>
+            <Attendees
+              fetchEvent={fetchEvent}
+              currentUser={currentUser}
+              isLoggedIn={isLoggedIn}
+              event={event}
+            />
+          </div>
 
-        <div className="time-loc-price-div">
-          <div>
-            <i className="fa fa-calendar" aria-hidden="true"></i>
-            <span>
-              {new Intl.DateTimeFormat("en-GB").format(
-                new Date(event.dateOfEvent)
-              )}
-            </span>
-          </div>
-          <div>
-            <i className="fa-regular fa-clock"></i>
-            <span>{event.time}</span>
-          </div>
-          <div>
-            <i className="fa-solid fa-location-dot"></i>
-            <span>{event.location}</span>
-          </div>
-          <div>
-            <i className="fa fa-eur" aria-hidden="true"></i>
-            <span>{event.price || "Free"}</span>
-          </div>
-          <div>
-            <i className="fa fa-list" aria-hidden="true"></i>
-            <span>{event.category}</span>
+          <div className="time-loc-price-div">
+            <div>
+              <i className="fa fa-calendar" aria-hidden="true"></i>
+              <span>
+                {new Intl.DateTimeFormat("en-GB").format(
+                  new Date(event.dateOfEvent)
+                )}
+              </span>
+            </div>
+            <div>
+              <i className="fa-regular fa-clock"></i>
+              <span>{event.time}</span>
+            </div>
+            <div>
+              <i className="fa-solid fa-location-dot"></i>
+              <span>{event.location}</span>
+            </div>
+            <div>
+              <i className="fa fa-eur" aria-hidden="true"></i>
+              <span>{event.price || "Free"}</span>
+            </div>
+            <div>
+              <i className="fa fa-list" aria-hidden="true"></i>
+              <span>{event.category}</span>
+            </div>
           </div>
         </div>
       </div>
