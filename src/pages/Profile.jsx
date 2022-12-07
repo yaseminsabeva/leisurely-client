@@ -16,7 +16,7 @@ function Profile() {
     }
   return (
     <div className="profile container">
-      <div>
+      {/* <div>
           <button className="user btn-edit" onClick={() => setShowEdit(!showEdit)}>
             {showEdit ? 'back' : 'Edit form'}
           </button>       
@@ -27,6 +27,18 @@ function Profile() {
       </div>
       <div>
         <SubscribedEvents/>
+      </div> */}
+      <div>
+          <button className="user btn-edit" onClick={() => setShowEdit(!showEdit)}>
+            {showEdit ? 'back' : 'Edit form'}
+          </button>       
+          {showEdit ? 
+          <EditProfile user={user} setShowEdit={setShowEdit} /> : 
+            <div><UserProfile user={user} currentUser={currentUser}/>
+                 <UserEvents/>
+                 <SubscribedEvents/>
+            </div>
+         }
       </div>
     </div>
   )

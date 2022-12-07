@@ -20,7 +20,7 @@ function SubscribedEvents() {
     }, [])
     if (!events.length) return (
       <div>
-        <h1>Events I Subscribe To</h1>
+        <h1>Events Attending</h1>
         <div className="nothing-to-show">Nothing to show....</div>
       </div>
     )
