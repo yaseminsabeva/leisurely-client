@@ -29,21 +29,29 @@ h1 {
   padding: 0.5rem;
   border-radius: 10%;
   justify-self: center;
+  font-weight: bold;
 }
 .one-event-image {
   height: 100%;
-  width: 70%;
+  width: 50%;
   margin: auto;
 }
 .edit-delete-div {
   display: flex;
   justify-content: flex-end;
   margin-right: 10rem;
+  margin-top: 110px;
+}
+.one-event-page {
+  display: flex;
+  flex-direction: column;
+  margin-top: 110px;
 }
 .one-event-infos {
   display: flex;
   margin: auto;
-  justify-content: space-around;
+  justify-content: space-between;
+  width: 50vw;
 }
 .time-loc-price-div {
   display: flex;
@@ -58,6 +66,7 @@ h1 {
   padding: 0.5rem;
   border-radius: 10%;
   margin: 1rem;
+  font-weight: bold;
 }
 .edit-btn {
   padding-left: 1rem;

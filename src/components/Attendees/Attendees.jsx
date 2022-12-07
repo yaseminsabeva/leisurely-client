@@ -24,7 +24,7 @@ function Attendees({ currentUser, isLoggedIn, fetchEvent, event }) {
             ) : (
               // <Link to={`/users/${element._id}`} key={element._id}>{element.name}</Link>)
 
-              <Link to={`/users/${element.name}`} key={element._id}>
+              <Link to={`/users/${element.username}`} key={element._id}>
                 <div className="attendees-div">
                   <div className="attendees-img-div">
                     <img

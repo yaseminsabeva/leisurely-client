@@ -11,7 +11,7 @@
 .global-form form {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 50vw;
 }
 
 .global-form form label {
@@ -37,7 +37,7 @@
     font: inherit;
     background-color: rgb(247, 241, 225);
     color: #8c9476;
-    padding: 15px;
+    padding: 1.5rem;
     font-weight: bold;
 }
 
@@ -63,7 +63,7 @@
     margin-top: 30px;
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 50vw;
 }
 
 .delete-user button {
