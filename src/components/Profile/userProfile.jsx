@@ -6,7 +6,7 @@ function UserProfile({user, currentUser}) {
 //const {currentUser} = useAuth()
 
 return (
-	<div className="profile event-card">
+	<div className="event-card">
     <picture><img src={user.picture} alt=""/></picture>
       <div className="profile user-info">
         <div>
