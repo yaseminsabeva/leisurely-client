@@ -7,7 +7,7 @@ import useAuth from "../../auth/useAuth"
 const EditProfile = ({user, setShowEdit}) => {
     const {authenticateUser, removeUser} = useAuth()
     const id = user._id
-	const [values, handleChange] = useForm({ name: user.name,username: user.username, email: user.email, password: "", description: user.description, picture: {}  })
+	const [values, handleChange] = useForm({ name: user.name,username: user.username, email: user.email, description: user.description, picture: {}  })
 	const [error, setError] = useState(null)
 	const navigate = useNavigate()
 

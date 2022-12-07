@@ -47,7 +47,7 @@ function OneEvent() {
   if (!event) return "";
 
   return (
-    <div>
+    <div className="one-page container">
       {isLoggedIn && currentUser.username === event.host.username ? (
         <div className="edit-delete-div">
           <div className="edit-btn">
