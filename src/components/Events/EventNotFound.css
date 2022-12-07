@@ -1,0 +1,17 @@
+.event-not-found {
+  height: 800px;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pic-event-not-found {
+  height: 600px;
+  width: fit-content;
+}
+
+.content-event-not-found {
+  text-align: center;
+}

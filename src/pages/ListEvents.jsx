@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import service from "../api/apiHandler";
 import EventCardSmall from "../components/Events/EventCardSmall";
 import EventFilter from "../components/Events/EventFilter";
+import EventNotFound from "../components/Events/EventNotFound";
 
 function ListEvents({ filters, setFilters }) {
   const [events, setEvents] = useState([]);
@@ -54,12 +55,8 @@ function ListEvents({ filters, setFilters }) {
       <div className="events-list">
         <h1>Upcoming Events</h1>
         {/* prep for the loading component */}
-        {isLoading && <p>am loading</p>}
-        {!isLoading && !events.length ? (
-          <div className="loading">No events matching your criteria....</div>
-        ) : (
-          ""
-        )}
+        {isLoading && ""}
+        {!isLoading && !events.length ? <EventNotFound /> : ""}
         {events.map((event) => {
           return <EventCardSmall key={event._id} event={event} />;
         })}
