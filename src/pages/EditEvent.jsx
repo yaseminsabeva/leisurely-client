@@ -4,6 +4,7 @@ import apiHandler from "../api/apiHandler";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import useAuth from "../auth/useAuth";
+import NotFound from "../components/NotFound/NotFound";
 
 function EditEvent() {
   const { currentUser, isLoggedIn } = useAuth();
@@ -185,7 +186,7 @@ function EditEvent() {
           </form>
         </div>
       ) : (
-        <p>You are not authorised</p>
+        <NotFound />
       )}
     </>
   );

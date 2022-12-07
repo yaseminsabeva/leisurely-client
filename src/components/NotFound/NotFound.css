@@ -1,0 +1,13 @@
+.not-found-error {
+  width: 60vw;
+  height: 60vh;
+  margin: auto;
+  margin-top: 10rem;
+}
+
+.not-found-error h2 {
+  font-size: 1.6rem;
+  color: var(--darkgreen);
+  text-align: center;
+  padding-top: 2rem;
+}

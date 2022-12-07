@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import service from "../api/apiHandler";
 import EventCardSmall from "../components/Events/EventCardSmall";
 import EventFilter from "../components/Events/EventFilter";
-import EventNotFound from "../components/Events/EventNotFound";
+import EventNotFound from "../components/NotFound/EventNotFound";
 
 function ListEvents({ filters, setFilters }) {
   const [events, setEvents] = useState([]);
