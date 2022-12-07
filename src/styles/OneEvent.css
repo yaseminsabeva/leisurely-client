@@ -60,6 +60,46 @@ h1 {
   min-width: fit-content;
   padding-left: 5rem;
 }
+
+#delete-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#delete-form .delete-container {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#delete-form .delete-container .delete-confirm {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin: 10px;
+}
+
+#delete-form .delete-container .delete-confirm button {
+  padding: 5px;
+  transition: all 0.1s ease-in-out;
+}
+
+#delete-form .delete-container .delete-confirm button:hover {
+  transition: all 0.1s ease-in-out;
+  background-color: var(--darkgreen);
+  color: var(--beige);
+}
+
 .edit-btn,
 .delete-btn {
   color: var(--darkgreen);
@@ -73,6 +113,11 @@ h1 {
   padding-left: 1rem;
   padding-right: 1rem;
 }
+.edit-btn,
+.delete-btn:hover {
+  cursor: pointer;
+}
+
 /* .event-subscribe-div {
   display: flex;
   justify-self: ;

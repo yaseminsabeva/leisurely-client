@@ -23,6 +23,7 @@ img {
   flex-grow: 1;
   gap: 2rem;
   padding: 30px;
+  max-width: 60%;
 }
 
 .event-info {

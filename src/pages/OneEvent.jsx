@@ -54,10 +54,14 @@ function OneEvent() {
             Delete
           </div>
           {deleteForm && (
-            <div id="deleteForm">
-              <p>are u sure</p>
-              <button onClick={handleDelete}>yes</button>
-              <button onClick={() => setDeleteForm(false)}>no</button>
+            <div id="delete-form">
+              <div className="delete-container">
+                <p>Are you sure you want to delete this event ?</p>
+                <div className="delete-confirm">
+                  <button onClick={handleDelete}>Yes</button>
+                  <button onClick={() => setDeleteForm(false)}>No</button>
+                </div>
+              </div>
             </div>
           )}
         </div>

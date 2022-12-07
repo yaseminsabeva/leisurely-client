@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 //import service from '../api/apiHandler'
-import UserProfile from "../components/Profile/UserProfile.jsx";
+import UserProfile from "../components/Profile/UserProfile";
 import EditProfile from "../components/Profile/EditProfile";
 import UserEvents from "../components/Profile/UserEvents";
 import SubscribedEvents from "../components/Profile/SubscribedEvents";

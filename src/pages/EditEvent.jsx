@@ -18,14 +18,15 @@ function EditEvent() {
     apiHandler
       .getOneEvent(id)
       .then((response) => {
-        // console.log(response.data);
+        response.dateOfEvent = response.dateOfEvent.split("T")[0];
         setEvent(response);
         setEditForm(response);
       })
-      .catch((err) => {
-        console.error(err.message);
+      .catch((error) => {
+        setError(error.response.data);
       });
   }, []);
+
   const [values, handleChange, resetEditForm, setEditForm] = useForm({
     title: "",
     category: "",
@@ -74,7 +75,7 @@ function EditEvent() {
         navigate(`/events/${_id}`);
       })
       .catch((error) => {
-        setError(error.response);
+        setError(error.response.data);
       });
   }
 
@@ -144,7 +145,7 @@ function EditEvent() {
               type="date"
               id="date"
               name="dateOfEvent"
-              value={dateOfEvent.slice(0, dateOfEvent.indexOf("T"))}
+              value={dateOfEvent}
               onChange={handleChange}
             />
             <label htmlFor="time">Time of Event: </label>
@@ -179,10 +180,18 @@ function EditEvent() {
               type="file"
               id="image"
               name="image"
-              //value={image ? `C:\\fakepath\\${image.name}` : ""}
             />
 
             <button>Edit</button>
+
+            {error && error.message && (
+              <p
+                className="error"
+                style={{ color: "red", textAlign: "center", marginTop: "1rem" }}
+              >
+                {error.message}
+              </p>
+            )}
           </form>
         </div>
       ) : (
