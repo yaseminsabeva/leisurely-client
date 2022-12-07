@@ -44,7 +44,7 @@ function OneEvent() {
       });
   }
 
-  if (!event) return <div className="loading">Loading...</div>;
+  if (!event) return "";
 
   return (
     <div>
