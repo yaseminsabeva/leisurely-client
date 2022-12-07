@@ -9,47 +9,47 @@ function Attendees({ currentUser, isLoggedIn, fetchEvent, event }) {
       <div className="attendees">
         <p>Attendees for this event:</p>
         <div className="all-attendees">
-          {event.attendees.map((element) => {
-            return isLoggedIn && currentUser.username === element.username ? (
-              <div className="attendees-div">
-                <div className="attendees-img-div">
-                  <img
-                    className="attendees-pic"
-                    src={currentUser.picture}
-                    alt={currentUser.username}
-                  />
-                </div>
-                <div>You</div>
-              </div>
-            ) : (
-              // <Link to={`/users/${element._id}`} key={element._id}>{element.name}</Link>)
+          {event.attendees.length === 0 ? (
+            <p style={{ color: "grey" }}>
+              Looks like there are no attendees for this event yet.
+            </p>
+          ) : (
+            event.attendees.map((element) => {
+              const isMe =
+                isLoggedIn && currentUser.username === element.username;
+              const user = isMe ? currentUser : element;
 
-              <Link to={`/users/${element.username}`} key={element._id}>
-                <div className="attendees-div">
-                  <div className="attendees-img-div">
-                    <img
-                      className="attendees-pic"
-                      src={element.picture}
-                      alt={element.name}
-                    />
+              return (
+                <Link
+                  to={isMe ? "/profile" : `/users/${user.username}`}
+                  key={user._id}
+                >
+                  <div className="attendees-div">
+                    <div className="attendees-img-div">
+                      <img
+                        className="attendees-pic"
+                        src={user.picture}
+                        alt={user.name}
+                      />
+                    </div>
+                    <div>{isMe ? "You" : user.username}</div>
                   </div>
-                  <div>{element.name}</div>
-                </div>
-              </Link>
-            );
-          })}
+                </Link>
+              );
+            })
+          )}
         </div>
       </div>
+
       <div>
-        {!isLoggedIn ||
-        currentUser._id === event.host._id ||
-        event.attendees.find((e) => e._id === currentUser._id) ? (
-          ""
-        ) : (
-          <div className="event-subscribe-div">
-            <EventSubscribe fetchEvent={fetchEvent} event={event} />
-          </div>
-        )}
+        {/* Don't show subscribe button unless user is logged in and not the host of the event and not already attending */}
+        {isLoggedIn &&
+          currentUser._id !== event.host._id &&
+          !event.attendees.find((e) => e._id === currentUser._id) && (
+            <div className="event-subscribe-div">
+              <EventSubscribe fetchEvent={fetchEvent} event={event} />
+            </div>
+          )}
       </div>
     </div>
   );

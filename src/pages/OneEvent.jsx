@@ -4,9 +4,6 @@ import service from "../api/apiHandler";
 import useAuth from "../auth/useAuth";
 import Attendees from "../components/Attendees/Attendees";
 import "./../styles/OneEvent.css";
-// jeanne //
-// import EventSubscribe from "../components/Events/EventSubscribe";
-// jeanne //
 
 function OneEvent() {
   const [event, setEvent] = useState(null);
@@ -71,7 +68,7 @@ function OneEvent() {
         <img className="one-event-image" src={event.image} alt={event.title} />
         <div className="one-event-infos">
           <div className="event-infos">
-            <h1>{event.title}</h1>
+            <h1 style={{ paddingLeft: "0" }}>{event.title}</h1>
             <p>
               <span>Description: </span>
               {event.description}

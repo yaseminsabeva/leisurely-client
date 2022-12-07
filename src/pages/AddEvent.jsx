@@ -57,6 +57,7 @@ function AddEvent() {
           name="title"
           value={title}
           onChange={handleChange}
+          placeholder="Add event title..."
         />
         <label htmlFor="category">Category: </label>
         <select
@@ -93,6 +94,7 @@ function AddEvent() {
           name="keywords"
           value={keywords}
           onChange={handleChange}
+          placeholder="Add keywords for your event..."
         />
         <label htmlFor="description">Description: </label>
         <textarea
@@ -101,6 +103,7 @@ function AddEvent() {
           name="description"
           value={description}
           onChange={handleChange}
+          placeholder="Add event description..."
         />
         <label htmlFor="date">Date of Event: </label>
         <input
@@ -125,6 +128,7 @@ function AddEvent() {
           name="location"
           value={location}
           onChange={handleChange}
+          placeholder="Add a location..."
         />
         <label htmlFor="price">Price: </label>
         <input
@@ -145,6 +149,15 @@ function AddEvent() {
         />
 
         <button>Add Event 🎉</button>
+
+        {error && error.message && (
+          <p
+            className="error"
+            style={{ color: "red", textAlign: "center", marginTop: "1rem" }}
+          >
+            {error.message}
+          </p>
+        )}
       </form>
     </div>
   );

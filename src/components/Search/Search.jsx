@@ -6,6 +6,7 @@ function Search({ search, setSearch }) {
       type="search"
       name="search"
       id="search"
+      placeholder="Search..."
       value={search}
       onChange={(e) => {
         setSearch(e.target.value);
