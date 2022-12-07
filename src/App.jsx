@@ -12,7 +12,8 @@ import AddEvent from "./pages/AddEvent";
 import EditEvent from "./pages/EditEvent";
 import Users from "./pages/Users";
 import { useState } from "react";
-import "./components/Forms/Form.css"
+import "./components/Forms/Form.css";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   const [filters, setFilters] = useState({
@@ -43,7 +44,7 @@ function App() {
           <Route path="/events/add" element={<AddEvent />} />
           <Route path="/events/:id/edit" element={<EditEvent />} />
         </Route>
-        <Route path="*" element={<p>not found</p>} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
