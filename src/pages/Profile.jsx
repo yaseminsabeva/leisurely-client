@@ -16,18 +16,6 @@ function Profile() {
   }
   return (
     <div className="profile container">
-      {/* <div>
-          <button className="user btn-edit" onClick={() => setShowEdit(!showEdit)}>
-            {showEdit ? 'back' : 'Edit form'}
-          </button>       
-        {showEdit ? <EditProfile user={user} setShowEdit={setShowEdit} /> : <UserProfile user={user}/>}
-      </div>
-      <div>
-        <UserEvents/>
-      </div>
-      <div>
-        <SubscribedEvents/>
-      </div> */}
       <div>
         <button
           className="user btn-edit"
