@@ -6,7 +6,6 @@ import useAuth from "../../auth/useAuth";
 
 const EditProfile = ({ user, setShowEdit }) => {
   const { authenticateUser, removeUser } = useAuth();
-  const id = user._id;
   const [values, handleChange] = useForm({
     name: user.name,
     username: user.username,
@@ -26,7 +25,7 @@ const EditProfile = ({ user, setShowEdit }) => {
 
     service
       .editUserProfile(fd)
-      .then(async (res) => {
+      .then(async () => {
         setShowEdit(false);
         await authenticateUser();
       })
@@ -34,7 +33,7 @@ const EditProfile = ({ user, setShowEdit }) => {
         setError(error.response.data);
       });
   };
-  const handleDelete = (e) => {
+  const handleDelete = () => {
     service
       .deleteUserProfile()
       .then(() => {
