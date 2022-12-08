@@ -27,6 +27,13 @@ h1 {
   justify-self: center;
   font-weight: bold;
 }
+
+.one-page {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
 .one-event-image {
   height: 100%;
   width: 50%;
@@ -35,8 +42,8 @@ h1 {
 .edit-delete-div {
   display: flex;
   justify-content: flex-end;
-  margin-right: 10rem;
-  margin-top: 110px;
+  position: absolute;
+  right: 2rem;
 }
 .one-event-page {
   display: flex;
@@ -102,7 +109,7 @@ h1 {
   background-color: var(--beige);
   padding: 0.5rem;
   border-radius: 10%;
-  margin: 1rem;
+  margin: 0 1rem;
   font-weight: bold;
 }
 

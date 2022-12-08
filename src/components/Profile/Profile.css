@@ -1,6 +1,6 @@
 /* USER */
 .profile {
-    padding: 30px;
+    padding: 2rem;
 }
 
 .profile button {
@@ -10,7 +10,7 @@
     color: #8c9476;
     padding: 15px;
     font-weight: bold;
-    right: 30px;
+    right: 2rem;
 }
 
 .user-info {
@@ -18,7 +18,7 @@
     flex-direction: column;
     flex-grow: 1;
     gap: 2rem;
-    padding: 30px;
+    padding: 1rem 2rem;
     color: var(--brownish);
     font-weight: bold;
 }
@@ -30,7 +30,7 @@
 
 .profile .event-card {
     /* width: 100%; */
-    margin-bottom: 30px;
+    margin-bottom: 2rem;
 }
 
 
