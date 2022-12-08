@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./EventFilter.css";
 import Search from "../Search/Search";
 
-
 function EventFilter({
   checkers,
   setCheckers,
@@ -11,7 +10,6 @@ function EventFilter({
   getEvents,
 }) {
   const { search, endDate, startDate } = filters;
-console.log(filters, checkers)
   function handleStartDate(e) {
     setFilters((currentValue) => {
       return { ...currentValue, startDate: e.target.value };
@@ -46,30 +44,32 @@ console.log(filters, checkers)
           <h2>Search by ...</h2>
           <h3>Title & Date</h3>
           <Search search={search} setSearch={setSearch} />
-        
-    
+
           <div className="date-filter">
-          <label htmlFor="date">From:</label>
-          <input
-            type="date"
-            id="startDate"
-            value={startDate}
-            onChange={handleStartDate}
-          />
+            <label htmlFor="date">From:</label>
+            <input
+              type="date"
+              id="startDate"
+              value={startDate}
+              onChange={handleStartDate}
+            />
           </div>
           <div className="date-filter">
-          <label htmlFor="date">To:</label>
-          <input
-            type="date"
-            id="endDate"
-            value={endDate}
-            onChange={handleEndDate}
-          />
+            <label htmlFor="date">To:</label>
+            <input
+              type="date"
+              id="endDate"
+              value={endDate}
+              onChange={handleEndDate}
+            />
           </div>
-          <input className="submit-filter btn" type="submit" value="Apply Filters" />
+          <input
+            className="submit-filter btn"
+            type="submit"
+            value="Apply Filters"
+          />
         </form>
         <h3>Categories</h3>
-        {/* <label htmlFor="category">Category</label> */}
 
         <div className="select">
           <div>
@@ -213,16 +213,16 @@ console.log(filters, checkers)
             <label htmlFor="pets">Pets & Animals</label>
           </div>
           <div>
-          <div>
-          <input
-            type="checkbox"
-            checked={checkers["Other"] || false}
-            name="Other"
-            id="other"
-            onChange={handleCheck}
-          />
-          <label htmlFor="other">Other</label>
-          </div>
+            <div>
+              <input
+                type="checkbox"
+                checked={checkers["Other"] || false}
+                name="Other"
+                id="other"
+                onChange={handleCheck}
+              />
+              <label htmlFor="other">Other</label>
+            </div>
           </div>
         </div>
       </div>

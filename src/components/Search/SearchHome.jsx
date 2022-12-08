@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import service from "../../api/apiHandler";
 import "./SearchHome.css";
 
-
 function SearchHome() {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
@@ -13,7 +12,6 @@ function SearchHome() {
     navigate("/events?title=" + search);
   }
   return (
-
     <div className="home-search-bar">
       <form onSubmit={handleSearch}>
         <input
@@ -24,7 +22,6 @@ function SearchHome() {
           placeholder="Search for events..."
           value={search}
           onChange={(e) => {
-            console.log(e.target.value);
             setSearch(e.target.value);
           }}
         />

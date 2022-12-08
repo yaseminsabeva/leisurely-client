@@ -11,12 +11,10 @@ function SubscribedEvents() {
       .getEventsSubscribeddByUser()
       .then((response) => {
         setEvents(response);
-        console.log(response);
       })
       .catch((err) => {
         console.error(err.message);
       });
-    console.log(events);
   }, []);
   if (!events.length)
     return (

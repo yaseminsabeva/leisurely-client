@@ -54,7 +54,6 @@ function ListEvents({ filters, setFilters }) {
       </div>
       <div className="events-list">
         <h1>Upcoming Events</h1>
-        {/* prep for the loading component */}
         {isLoading && ""}
         {!isLoading && !events.length ? <EventNotFound /> : ""}
         {events.map((event) => {

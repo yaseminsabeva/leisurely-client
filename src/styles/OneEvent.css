@@ -1,7 +1,3 @@
-/* .hide {
-  display: none;
-} */
-
 .attendees-pic {
   width: auto;
   height: 100%;
@@ -109,19 +105,17 @@ h1 {
   margin: 1rem;
   font-weight: bold;
 }
+
 .edit-btn {
   padding-left: 1rem;
   padding-right: 1rem;
 }
+
 .edit-btn,
 .delete-btn:hover {
   cursor: pointer;
 }
 
-/* .event-subscribe-div {
-  display: flex;
-  justify-self: ;
-} */
 .attendees-div {
   display: flex;
   flex-direction: column;
