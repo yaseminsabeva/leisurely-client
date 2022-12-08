@@ -7,7 +7,7 @@ function EventNotFound() {
     <div className="event-not-found">
       <div className="content-event-not-found">
         <h2>No events found</h2>
-        <p>Looks like there are no events matching your search criteria...</p>
+        <p>We couldn't find any events...</p>
       </div>
       <picture className="pic-event-not-found">
         <img src={eventNotFound} alt="event not found" />
