@@ -19,6 +19,7 @@ function SubscribedEvents() {
   if (!events.length)
     return (
       <div>
+        <h1>Events Attending</h1>
         <EventNotFound />
       </div>
     );
