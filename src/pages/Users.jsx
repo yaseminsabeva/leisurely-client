@@ -5,6 +5,7 @@ import service from '../api/apiHandler'
 import UserProfile from "../components/Profile/UserProfile"
 import EventCardSmall from "../components/Events/EventCardSmall"
 import SubscribedEvents from "../components/Profile/SubscribedEvents"
+import EventNotFound from "../components/NotFound/EventNotFound";
 
 function Users() {
   const [attendee, setAttendeeProfil] = useState(null);
@@ -33,12 +34,21 @@ function Users() {
         <UserProfile user={attendee} />
       </div>
       <div>
-      <h1>Events Hosted</h1>
-      {attendee.events.map((event) => {
-        return <EventCardSmall key={event._id} event={event} />
-      })}
-    </div>
-    <SubscribedEvents/>
+        <h1>Events Hosted</h1>
+        {!attendee.events.length ? <EventNotFound/> : 
+        attendee.events.map((event) => {
+          console.log(event)
+          return <EventCardSmall key={event._id} event={event} />
+        })}
+        
+      </div>
+      <div>
+        <h1>Events Attending</h1>
+        {attendee.attendingEvent.map((event) => {
+          console.log(event)
+          return <EventCardSmall key={event._id} event={event} />
+        })}
+      </div>
     </div>
   );
 }
